@@ -18,10 +18,10 @@ const DataModeling = () => {
         axios.get("http://localhost:3001/home")
             .then(result => {
                 console.log(result)
-                if (result.data === "Successful") {
-                    navigate("/dataModeling")
-                } else {
+                if (result.data !== "Successful") {
                     navigate("/login")
+                } else {
+                    navigate("/dataModeling")
                 }
 
             })
