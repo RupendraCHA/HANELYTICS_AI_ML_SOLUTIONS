@@ -6,13 +6,16 @@ import BarChart from "./../BarChartPage/BarChart.jsx"
 import PieChart from "./../PieChartPage/PieChart.jsx"
 import Table from "./../DataTable/Table.jsx"
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Dropdown } from "antd"
 
 const DataModeling = () => {
 
     const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
 
     const navigate = useNavigate()
+
+    axios.defaults.withCredentials = true;
 
     useEffect(() => {
         axios.get("http://localhost:3001/home")
@@ -28,16 +31,47 @@ const DataModeling = () => {
             .catch(err => console.log(err))
     }, [])
 
+    const handleLogout = () => {
+        alert("Do you want to Log out!!")
+        axios.get("http://localhost:3001/logout")
+            .then(result => {
+                console.log(result.data)
+                if (result.data === "Logged Out") {
+                    navigate("/login")
+                }
+            })
+    }
+    const items = [
+        {
+            key: 1,
+            label: (
+                <a id='modeling-drop-option1' href="/home">
+                    Home
+                </a>
+            )
+        },
+        {
+            key: 2,
+            label: (
+                <a id='modeling-drop-option2' onClick={handleLogout}>
+                    Logout
+                </a>
+            )
+        }
+    ]
+
     return (
         <div className='data-modeling-container'>
             <header className='container website-header'>
                 <div className='header-container'>
-                    <h1 className='website-heading'>
-                        HANELYTICS
-                    </h1>
-                    <div>
+                    <Link to="/home" className='website-heading'>
+                        <h1 >
+                            HANELYTICS
+                        </h1>
+                    </Link>
+                    <Dropdown menu={{ items }} trigger={['hover']}>
                         <FaRegCircleUser className='user-icon' />
-                    </div>
+                    </Dropdown>
                 </div>
             </header>
             <div className='container data-models-section-container'>
