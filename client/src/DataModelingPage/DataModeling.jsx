@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./DataModeling.css"
 import { FaRegCircleUser } from "react-icons/fa6";
 import DatasetItem from "./../DatasetsItem/DatasetsItem.jsx"
 import BarChart from "./../BarChartPage/BarChart.jsx"
 import PieChart from "./../PieChartPage/PieChart.jsx"
 import Table from "./../DataTable/Table.jsx"
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const DataModeling = () => {
 
     const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/home")
+            .then(result => {
+                console.log(result)
+                if (result.data === "Successful") {
+                    navigate("/dataModeling")
+                } else {
+                    navigate("/login")
+                }
+
+            })
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div className='data-modeling-container'>
