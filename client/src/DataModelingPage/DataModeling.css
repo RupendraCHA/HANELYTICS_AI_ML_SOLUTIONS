@@ -3,7 +3,8 @@
     rgba(76, 175, 80, 0.6);
   min-height: 100vh;
   background-size: cover;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: scroll;
   /* padding-top: 100px; */
   padding-bottom: 100px;
 }
@@ -185,6 +186,7 @@ ul {
   color: #310cb3;
   flex: 5;
   padding: 0 8px 0 8px;
+  width: 40%;
   /* display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,6 +198,7 @@ ul {
   /* justify-content: space-between; */
   height: 45vh;
   width: 100%;
+  overflow: scroll;
   /* background-color: #000; */
 }
 @media screen and (max-width: 768px) {
@@ -221,7 +224,7 @@ ul {
 .table-container {
   /* width: 500px; */
   margin: 0 20px 20px 20px;
-  width: auto;
+  width: 98%;
   overflow-y: scroll;
   height: 55vh;
   border: 2px solid #000;

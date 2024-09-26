@@ -112,7 +112,6 @@ const DataModeling = () => {
                     </div>
                     <h1 className='results-heading'>Results:</h1>
                     <div className='table-container'>
-
                         <Table />
                     </div>
 
