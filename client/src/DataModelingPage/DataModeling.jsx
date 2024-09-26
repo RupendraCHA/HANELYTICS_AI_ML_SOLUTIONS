@@ -90,7 +90,8 @@ const DataModeling = () => {
                 <section className='workflows-section'>
                     <h1 className='use-case-heading'>Use Cases</h1>
                     <div className='data-model-types'>
-                        <h2 className='model-name'>
+                        <h2 className='model-name' onClick={getDataFromMongoDB}>
+
                             Predicting Inventory Reorder Point & Safety Stock
                         </h2>
                         <h2 className='model-name'>
@@ -108,7 +109,7 @@ const DataModeling = () => {
                         })}
                     </div>
                     <div>
-                        <button className='compute-results' onClick={getDataFromMongoDB}>
+                        <button className='compute-results'>
                             Compute Results
                         </button>
                     </div>
