@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./DataModeling.css"
 import { FaRegCircleUser } from "react-icons/fa6";
 import DatasetItem from "./../DatasetsItem/DatasetsItem.jsx"
@@ -8,11 +8,12 @@ import Table from "./../DataTable/Table.jsx"
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Dropdown } from "antd"
+import { revenueData } from './JsonData1.jsx'
 
 const DataModeling = () => {
 
     const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
-
+    const [data, setData] = useState(revenueData)
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;
@@ -41,6 +42,17 @@ const DataModeling = () => {
                 }
             })
     }
+
+    const getDataFromMongoDB = async () => {
+        await axios.get("http://localhost:3001/getResultsData")
+            .then(result => {
+                const Array = result.data
+                // const largeArray = Array.from({ length: 634 }, (_, i) => i);
+                setData(Array)
+                console.log(Array)
+            }).catch(err => console.log(err))
+    }
+
     const items = [
         {
             key: 1,
@@ -96,7 +108,7 @@ const DataModeling = () => {
                         })}
                     </div>
                     <div>
-                        <button className='compute-results'>
+                        <button className='compute-results' onClick={getDataFromMongoDB}>
                             Compute Results
                         </button>
                     </div>
@@ -112,7 +124,7 @@ const DataModeling = () => {
                     </div>
                     <h1 className='results-heading'>Results:</h1>
                     <div className='table-container'>
-                        <Table />
+                        <Table data={data} />
                     </div>
 
                 </div>

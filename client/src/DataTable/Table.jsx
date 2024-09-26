@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Table.css"
-import { revenueData } from './JsonData1'
+// import { revenueData } from './JsonData1'
 
-const Table = () => {
+const Table = (props) => {
+
+    const { data } = props
+
     return (
         <table className='table'>
             <thead >
@@ -24,7 +27,7 @@ const Table = () => {
             </thead>
             <tbody>
                 {
-                    revenueData.map((eachRow, index) => {
+                    data.map((eachRow, index) => {
                         {/* console.log(index) */ }
                         return (
                             <tr>

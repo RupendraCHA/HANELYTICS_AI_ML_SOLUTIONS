@@ -4,6 +4,7 @@ table {
   font-family: "Roboto";
   font-weight: 500;
   font-size: 14px;
+  font-weight: bold;
   /* box-shadow: 2px 2px 2px #201f1f; */
 }
 th,
@@ -14,8 +15,8 @@ tr {
   padding: 4px;
 }
 thead .column-name {
-  color: #000;
-  background-color: #647b7b;
+  color: #090fbb;
+  background-color: #cfd3d3;
   padding: 12px;
   font-size: 16px;
 }

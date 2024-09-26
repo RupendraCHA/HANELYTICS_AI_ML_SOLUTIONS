@@ -5,6 +5,7 @@ const EmployeeModel = require("./Models/Employee")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser")
+const { MongoClient } = require("mongodb")
 
 const app = express()
 app.use(express.json())
@@ -29,6 +30,30 @@ const verifyUser = (req, res, next) => {
         })
     }
 }
+
+async function fetchData() {
+
+
+}
+
+app.get("/getResultsData", async (req, res) => {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri)
+
+    try {
+        await client.connect()
+
+        const database = client.db("database_of_inventory_details")
+        const collection = database.collection("predicted_data")
+
+        const allDocuments = await collection.find().toArray()
+        return res.json(allDocuments)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+})
 
 app.get("/home", verifyUser, (req, res) => {
     return res.json("Successful")
