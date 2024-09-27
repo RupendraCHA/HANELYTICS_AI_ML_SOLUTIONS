@@ -14,6 +14,7 @@ const DataModeling = () => {
 
     const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
     const [data, setData] = useState(revenueData)
+    const [hideData, setHideData] = useState(true)
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;
@@ -50,6 +51,7 @@ const DataModeling = () => {
                 // const largeArray = Array.from({ length: 634 }, (_, i) => i);
                 setData(Array)
                 console.log(Array)
+                setHideData(false)
             }).catch(err => console.log(err))
     }
 
@@ -70,6 +72,14 @@ const DataModeling = () => {
                 </a>
             )
         }
+        // {
+        //     key: 3,
+        //     label: (
+        //         <a id='modeling-drop-option2' onClick={getDataFromMongoDB}>
+        //             Inventory Prediction Model
+        //         </a>
+        //     )
+        // }
     ]
 
     return (
@@ -102,7 +112,7 @@ const DataModeling = () => {
                         </h2>
                     </div>
                 </section>
-                <ul className='datasets-section'>
+                {/* <ul className='datasets-section'>
                     <div style={{ marginTop: "20px" }}>
                         {datasetsNames.map((dataset) => {
                             return <DatasetItem dataset={dataset} />
@@ -113,8 +123,15 @@ const DataModeling = () => {
                             Compute Results
                         </button>
                     </div>
-                </ul>
-                <div className='charts-section'>
+                </ul> */}
+                {
+                    hideData && (
+                        <div className='charts-section select-model-name'>
+                            Select the Use Case to view the results
+                        </div>
+                    )
+                }
+                {!hideData && (<div className='charts-section'>
                     <div className='charts-container'>
                         <div className='pie-chart'>
                             <PieChart />
@@ -128,7 +145,7 @@ const DataModeling = () => {
                         <Table data={data} />
                     </div>
 
-                </div>
+                </div>)}
             </div>
         </div>
     )
