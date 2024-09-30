@@ -16,7 +16,7 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-mongoose.connect("mongodb://127.0.0.1:27017/Visionsoft")
+
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
@@ -36,7 +36,7 @@ async function fetchData() {
 
 }
 
-app.get("/getResultsData", async (req, res) => {
+app.get("/getInventoryData", async (req, res) => {
     const uri = 'mongodb://localhost:27017';
     const client = new MongoClient(uri)
 
@@ -45,6 +45,25 @@ app.get("/getResultsData", async (req, res) => {
 
         const database = client.db("database_of_inventory_details")
         const collection = database.collection("predicted_data")
+
+        const allDocuments = await collection.find().toArray()
+        return res.json(allDocuments)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+})
+
+app.get("/getRevenueData", async (req, res) => {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri)
+
+    try {
+        await client.connect()
+
+        const database = client.db("revenue_dataset")
+        const collection = database.collection("revenue_results")
 
         const allDocuments = await collection.find().toArray()
         return res.json(allDocuments)
@@ -98,7 +117,19 @@ app.post('/register', (req, res) => {
 
 })
 
+const port = 3001;
 
-app.listen(3001, () => {
-    console.log("Server is running")
-})
+const connectToMongoDB = async () => {
+
+    await mongoose.connect("mongodb://127.0.0.1:27017/Visionsoft")
+        .then(() => {
+            console.log("Connected to MongoDB is Successful!")
+        }).catch((err) => {
+            console.log(err)
+        })
+    app.listen(port, () => {
+        console.log(`Server is started on http://localhost:${port}`)
+    })
+}
+
+connectToMongoDB()
