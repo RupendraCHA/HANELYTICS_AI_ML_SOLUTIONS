@@ -83,6 +83,7 @@ const DataModeling = () => {
                 setRevenueData(true)
                 setEquipmentData(true)
                 setHideShow(false)
+                handleTabClick("tab1")
             }).catch(err => console.log(err))
     }
 
@@ -97,6 +98,7 @@ const DataModeling = () => {
                 setHideShow(false)
                 setInventoryData(true)
                 setEquipmentData(true)
+                handleTabClick("tab1")
             }).catch(err => console.log(err))
     }
 
@@ -105,6 +107,7 @@ const DataModeling = () => {
         setRevenueData(true)
         setHideShow(false)
         setEquipmentData(false)
+        handleTabClick("tab1")
         setData(equipmentData)
     }
 
