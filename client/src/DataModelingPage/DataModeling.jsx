@@ -206,7 +206,7 @@ const DataModeling = () => {
                 {
                     hideShow && (
                         <div className='charts-section select-model-name empty-bg-image'>
-                            Select the Use Case to view the results
+                            <h2 className='select-text'>Select the Use Case to view the results</h2>
                         </div>
                     )
                 }
