@@ -13,6 +13,24 @@ import { equipmentData } from './EquipmentData.jsx'
 
 const DataModeling = () => {
 
+    const inventory_model_datasets = [
+        'Order History Data',
+        'Order History with Demand Levels',
+        'Product Information Data',
+        'Inventory Levels Data',
+        'Past Demand Information',
+        'Stock Movement in Warehouse',
+        'Warehouses Data',
+        'Daily Weather Forecast',
+        'Historical Weather Forecast'
+    ]
+
+    const revenue_model_datasets = ['Product Sales Data', 'Product Suppliers', 'Shipping Data', 'Manufacturing Costs Data']
+
+    const equipment_model_datasets = ['Sensor Data', 'Failure Data', 'Maintenance Data', 'Operational Data', 'Test Data of Equipment Failure']
+
+
+
     const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
     const [data, setData] = useState([])
     const [hideShow, setHideShow] = useState(true)
@@ -20,6 +38,12 @@ const DataModeling = () => {
     const [revenueData, setRevenueData] = useState(true)
     const [equipmentData1, setEquipmentData] = useState(true)
     const navigate = useNavigate()
+    const [activeTab, setActiveTab] = useState('tab1');
+
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+    };
+
 
     axios.defaults.withCredentials = true;
 
@@ -175,74 +199,182 @@ const DataModeling = () => {
                             Compute Results
                         </button>
                     </div>
-                </ul> */}
+                </ul>  */}
                 {
                     hideShow && (
-                        <div className='charts-section select-model-name'>
+                        <div className='charts-section select-model-name empty-bg-image'>
                             Select the Use Case to view the results
                         </div>
                     )
                 }
-                {!inventoryData && (<div className='charts-section'>
-                    <div className='charts-container'>
-                        <div className='pie-chart'>
-                            <PieChart />
+                {!inventoryData && (
+
+                    <div className='charts-section'>
+                        {/* Tab buttons */}
+                        <div className="tab-buttons">
+                            <button
+                                className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab1')}
+                            >
+                                Datasets
+                            </button>
+                            <button
+                                className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab2')}
+                            >
+                                Data Model Results
+                            </button>
                         </div>
-                        <div className='bar-chart'>
-                            <BarChart />
+
+                        {/* Tab content */}
+                        <div className="tab-content">
+                            {activeTab === 'tab1' && (
+                                <div id="tab1" className="content active">
+                                    {inventory_model_datasets.map((eachDataset, index) => {
+                                        return (
+                                            <li key={index} className='model-dataset'>{eachDataset}</li>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                            {activeTab === 'tab2' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-container'>
+                                        <div className='pie-chart'>
+                                            <PieChart />
+                                        </div>
+                                        <div className='bar-chart'>
+                                            <BarChart />
+                                        </div>
+                                    </div>
+                                    <h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                    </div>
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
-                    <h1 className='results-heading'>Results:</h1>
-                    <div className='table-container'>
-                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
-                    </div>
-                    <div className="button">
-                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
-                            Back
-                        </button>
-                    </div>
-                </div>)}
-                {!revenueData && (<div className='charts-section'>
-                    <div className='charts-container'>
-                        <div className='pie-chart'>
-                            <PieChart />
+                )}
+                {!revenueData && (
+                    <div className='charts-section'>
+                        {/* Tab buttons */}
+                        <div className="tab-buttons">
+                            <button
+                                className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab1')}
+                            >
+                                Datasets
+                            </button>
+                            <button
+                                className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab2')}
+                            >
+                                Data Model Results
+                            </button>
                         </div>
-                        <div className='bar-chart'>
-                            <BarChart />
+
+                        {/* Tab content */}
+                        <div className="tab-content">
+                            {activeTab === 'tab1' && (
+                                <div id="tab1" className="content active">
+                                    {revenue_model_datasets.map((eachDataset, index) => {
+                                        return (
+                                            <li key={index} className='model-dataset'>{eachDataset}</li>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                            {activeTab === 'tab2' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-container'>
+                                        <div className='pie-chart'>
+                                            <PieChart />
+                                        </div>
+                                        <div className='bar-chart'>
+                                            <BarChart />
+                                        </div>
+                                    </div>
+                                    <h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                    </div>
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
-                    <h1 className='results-heading'>Results:</h1>
-                    <div className='table-container'>
-                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
-                    </div>
-                    <div className="button">
-                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
-                            Back
-                        </button>
-                    </div>
-                </div>)}
-                {!equipmentData1 && (<div className='charts-section'>
-                    <div className='charts-container'>
-                        <div className='pie-chart'>
-                            <PieChart />
+
+                )}
+                {!equipmentData1 && (
+                    <div className='charts-section'>
+                        {/* Tab buttons */}
+                        <div className="tab-buttons">
+                            <button
+                                className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab1')}
+                            >
+                                Datasets
+                            </button>
+                            <button
+                                className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab2')}
+                            >
+                                Data Model Results
+                            </button>
                         </div>
-                        <div className='bar-chart'>
-                            <BarChart />
+
+                        {/* Tab content */}
+                        <div className="tab-content">
+                            {activeTab === 'tab1' && (
+                                <div id="tab1" className="content active">
+                                    {equipment_model_datasets.map((eachDataset, index) => {
+                                        return (
+                                            <li key={index} className='model-dataset'>{eachDataset}</li>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                            {activeTab === 'tab2' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-container'>
+                                        <div className='pie-chart'>
+                                            <PieChart />
+                                        </div>
+                                        <div className='bar-chart'>
+                                            <BarChart />
+                                        </div>
+                                    </div>
+                                    <h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                    </div>
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
-                    <h1 className='results-heading'>Results:</h1>
-                    <div className='table-container'>
-                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
-                    </div>
-                    <div className="button">
-                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
-                            Back
-                        </button>
-                    </div>
-                </div>)}
+
+                )}
             </div>
         </div>
-    )
+    );
 }
 
 export default DataModeling
