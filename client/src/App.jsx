@@ -12,21 +12,23 @@ import Navbar from './Navbar/Navbar.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function App() {
 
   return (
     <BrowserRouter>
-      <ToastContainer />
-      <Navbar />
-      <Routes>
-        <Route exact path='/' element={<InitialPage />}></Route>
-        <Route exact path='/register' element={<SignUp />}></Route>
-        <Route exact path='/login' element={<Login />}></Route>
-        <Route exact path='/home' element={<Home />}></Route>
-        {/* <Route exact path='/dataModels' element={<DataModels />}></Route> */}
-        <Route exact path='/dataModeling' element={<DataModeling />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
+      <storeContextProvider>
+        <ToastContainer />
+        <Routes>
+          <Route exact path='/' element={<InitialPage />}></Route>
+          <Route exact path='/register' element={<SignUp />}></Route>
+          <Route exact path='/login' element={<Login />}></Route>
+          <Route exact path='/home' element={<Home />}></Route>
+          {/* <Route exact path='/dataModels' element={<DataModels />}></Route> */}
+          <Route exact path='/dataModeling' element={<DataModeling />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </storeContextProvider>
     </BrowserRouter>
   )
 }

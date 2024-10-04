@@ -27,7 +27,8 @@ function SignUp() {
 
     return (
         <>
-            <div className='bg-container d-flex justify-content-center align-items-center vh-100'>
+            <Navbar />
+            <div className='bg-container-signup d-flex justify-content-center align-items-center vh-100'>
                 <div className='bg-black p-4 rounded-4 register-card' style={{ opacity: "0.8" }}>
                     <h2 className='text-white'>Register</h2>
                     <form onSubmit={handleSubmit}>
@@ -40,7 +41,7 @@ function SignUp() {
                                 autoComplete='off'
                                 required
                                 name='name'
-                                className='rounded-0 form-control'
+                                className='rounded-0 form-control register-user-input'
                                 onChange={(e) => setName(e.target.value)}
 
                             />
@@ -54,7 +55,7 @@ function SignUp() {
                                 autoComplete='off'
                                 required
                                 name='email'
-                                className='rounded-0 form-control'
+                                className='rounded-0 form-control register-user-input'
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -67,7 +68,7 @@ function SignUp() {
                                 autoComplete='off'
                                 required
                                 name='password'
-                                className='rounded-0 form-control'
+                                className='rounded-0 form-control register-user-input'
                                 onChange={(e) => setPassword(e.target.value)}
 
                             />

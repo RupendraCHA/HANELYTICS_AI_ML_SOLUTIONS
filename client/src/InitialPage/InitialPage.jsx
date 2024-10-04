@@ -25,18 +25,12 @@ function InitialPage() {
 
     return (
         <>
-            <div className='bg-container'>
+            <div className='bg-container-initial'>
                 <div className='container responsive-container'>
                     <div>
                         <img src='https://res.cloudinary.com/dvxkeeeqs/image/upload/v1724952055/logo-removebg-preview_prabm4.png' className='image-size' />
                         {/* <img src='https://res.cloudinary.com/dvxkeeeqs/image/upload/v1726505185/istockphoto-1407983911-612x612_hi0th1.jpg' className='image-size' /> */}
                     </div>
-                    {/* <ul className='d-flex flex-row justify-content-between align-items-center text-white'>
-                        <li>Product</li>
-                        <li>Usecases</li>
-                        <li>Industries</li>
-                        <li>Contact</li>
-                    </ul> */}
                     <div className='d-flex flex-row'>
                         <div className='button-size'>
                             <Link to="/register" className='bg-warning rounded-4 p-2 text-white'
@@ -46,6 +40,7 @@ function InitialPage() {
                             <Link to="/login" className='bg-success rounded-4 p-2 text-white' style={{ fontWeight: 500, textDecoration: "none" }}>
                                 Login</Link>
                         </div>
+                        {/* <h1>Data Modeling</h1> */}
                     </div>
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center' style={{ paddingTop: "150px" }}>

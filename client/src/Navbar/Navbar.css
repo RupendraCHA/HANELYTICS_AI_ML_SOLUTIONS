@@ -92,6 +92,11 @@
   outline: none;
   cursor: pointer;
 }
+.home {
+  background-color: black;
+  color: #fff;
+  border: 2px solid #fff;
+}
 .signup {
   background-color: red;
   color: #fff;

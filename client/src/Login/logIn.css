@@ -3,8 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-.bg-container {
-  background-image: url("https://res.cloudinary.com/dvxkeeeqs/image/upload/v1724952773/1520180926563_jadgvd.jpg");
+.bg-container-login {
+  /* background-image: url("https://res.cloudinary.com/dvxkeeeqs/image/upload/v1724952773/1520180926563_jadgvd.jpg"); */
+  background-image: url("https://res.cloudinary.com/dvxkeeeqs/image/upload/v1728068174/technology-6701404_640_nb7r5n.png");
   min-height: 100vh;
   background-size: cover;
   overflow: auto;
@@ -15,4 +16,8 @@
   .login-card {
     width: 25%;
   }
+}
+.login-user-input {
+  font-weight: 500;
+  padding-left: 10px;
 }

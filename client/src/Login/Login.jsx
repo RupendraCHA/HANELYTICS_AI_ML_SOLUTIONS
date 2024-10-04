@@ -53,8 +53,9 @@ function Login() {
 
     return (
         <>
-            <div className='bg-container d-flex justify-content-center align-items-center bg-secondary vh-100'>
-                <div className='bg-white p-4 rounded-4 login-card' style={{ opacity: "0.9" }}>
+            <Navbar />
+            <div className='bg-container-login d-flex justify-content-center align-items-center bg-secondary vh-100'>
+                <div className='bg-secondary p-4 rounded-4 login-card' style={{ opacity: "0.9" }}>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
@@ -67,7 +68,7 @@ function Login() {
                                 autoComplete='off'
                                 name='email'
                                 required
-                                className='rounded-0 form-control'
+                                className='rounded-0 form-control login-user-input'
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -80,7 +81,7 @@ function Login() {
                                 autoComplete='off'
                                 required
                                 name='password'
-                                className='rounded-0 form-control'
+                                className='rounded-0 form-control login-user-input'
                                 onChange={(e) => setPassword(e.target.value)}
 
                             />

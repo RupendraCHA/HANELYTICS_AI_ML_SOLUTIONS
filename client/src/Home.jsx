@@ -35,6 +35,7 @@ function Home() {
 
     return (
         <>
+            <Navbar />
             <div className='bg-dark d-flex flex-column justify-content-center align-items-center vh-100'>
                 <div>
                     {/* <a target='_blank' style={{ textDecoration: "none" }} href="https://app.powerbi.com/links/JTnfzld7WT?ctid=d77ec4e8-c88b-431b-8d7f-77755a4bbefc&pbi_source=linkShare">

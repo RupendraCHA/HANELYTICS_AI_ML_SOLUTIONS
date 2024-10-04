@@ -174,9 +174,14 @@ const DataModeling = () => {
                             HANELYTICS
                         </h1>
                     </Link>
-                    <Dropdown menu={{ items }} trigger={['hover']}>
-                        <FaRegCircleUser className='user-icon' />
-                    </Dropdown>
+                    <div className='drop-down'>
+                        <Dropdown menu={{ items }} trigger={['hover']}>
+                            <FaRegCircleUser className='user-icon' />
+                        </Dropdown>
+                        <div>
+                            <button onClick={() => handleLogout()}>Logout</button>
+                        </div>
+                    </div>
                 </div>
             </header>
             <div className='container data-models-section-container'>
@@ -191,6 +196,9 @@ const DataModeling = () => {
                         </h2>
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
                             Equipment Failure Prediction
+                        </h2>
+                        <h2 className="model-name">
+                            Predicting Inventory with Clinical Data
                         </h2>
                     </div>
                 </section>
@@ -234,15 +242,20 @@ const DataModeling = () => {
 
                         {/* Tab content */}
                         <div className="tab-content">
-                            {activeTab === 'tab1' && (
-                                <div id="tab1" className="content active">
+                            {activeTab === 'tab1' && (<>
+                                <div id="tab1" className="content model-datasets-active">
                                     {inventory_model_datasets.map((eachDataset, index) => {
                                         return (
                                             <li key={index} className='model-dataset'>{eachDataset}</li>
                                         )
                                     })}
                                 </div>
-                            )}
+                                <div className="button">
+                                    <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                        Back
+                                    </button>
+                                </div>
+                            </>)}
                             {activeTab === 'tab2' && (
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
@@ -288,15 +301,20 @@ const DataModeling = () => {
 
                         {/* Tab content */}
                         <div className="tab-content">
-                            {activeTab === 'tab1' && (
-                                <div id="tab1" className="content active">
+                            {activeTab === 'tab1' && (<>
+                                <div id="tab1" className="content model-datasets-active">
                                     {revenue_model_datasets.map((eachDataset, index) => {
                                         return (
                                             <li key={index} className='model-dataset'>{eachDataset}</li>
                                         )
                                     })}
                                 </div>
-                            )}
+                                <div className="button">
+                                    <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                        Back
+                                    </button>
+                                </div>
+                            </>)}
                             {activeTab === 'tab2' && (
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
@@ -343,15 +361,20 @@ const DataModeling = () => {
 
                         {/* Tab content */}
                         <div className="tab-content">
-                            {activeTab === 'tab1' && (
-                                <div id="tab1" className="content active">
+                            {activeTab === 'tab1' && (<>
+                                <div id="tab1" className="content model-datasets-active">
                                     {equipment_model_datasets.map((eachDataset, index) => {
                                         return (
                                             <li key={index} className='model-dataset'>{eachDataset}</li>
                                         )
                                     })}
                                 </div>
-                            )}
+                                <div className="button">
+                                    <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                        Back
+                                    </button>
+                                </div>
+                            </>)}
                             {activeTab === 'tab2' && (
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>

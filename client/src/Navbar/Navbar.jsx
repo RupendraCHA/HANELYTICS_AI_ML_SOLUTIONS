@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaSquarePhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
@@ -10,8 +10,6 @@ import "./Navbar.css"
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
-    const [loginText, setLoginText] = useState(false)
 
     return (
         <div className='navbar-container'>
@@ -52,11 +50,14 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='signup-register'>
+                    <Link to="/">
+                        <button className='home'>Home</button>
+                    </Link>
                     <Link to="/register">
                         <button className='signup'>Sign up</button>
                     </Link>
                     <Link to="/login">
-                        <button id='login' onClick={() => setLoginText(true)}>Login</button>
+                        <button id='login'>Login</button>
                     </Link>
                 </div>
             </div>
