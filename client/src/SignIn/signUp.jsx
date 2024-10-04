@@ -27,7 +27,6 @@ function SignUp() {
 
     return (
         <>
-            <Navbar />
             <div className='bg-container d-flex justify-content-center align-items-center vh-100'>
                 <div className='bg-black p-4 rounded-4 register-card' style={{ opacity: "0.8" }}>
                     <h2 className='text-white'>Register</h2>

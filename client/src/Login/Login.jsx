@@ -53,7 +53,6 @@ function Login() {
 
     return (
         <>
-            <Navbar />
             <div className='bg-container d-flex justify-content-center align-items-center bg-secondary vh-100'>
                 <div className='bg-white p-4 rounded-4 login-card' style={{ opacity: "0.9" }}>
                     <h2>Login</h2>

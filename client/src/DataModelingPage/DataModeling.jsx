@@ -166,7 +166,6 @@ const DataModeling = () => {
     ]
 
     return (<>
-        <Navbar />
         <div className='data-modeling-container'>
             <header className='container website-header'>
                 <div className='header-container'>
