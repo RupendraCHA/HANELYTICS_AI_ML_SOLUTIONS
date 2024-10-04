@@ -329,3 +329,7 @@ ul {
   border: 2px double #8e8d8d;
   /* box-shadow: 2px 2px 5px #fff; */
 }
+.info-bar {
+  background-color: #000;
+  color: #fff;
+}

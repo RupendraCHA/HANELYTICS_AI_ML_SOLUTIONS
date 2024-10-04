@@ -9,12 +9,15 @@ const { MongoClient } = require("mongodb")
 
 const app = express()
 app.use(express.json())
-app.use(cors({
-    origin: ["http://localhost:5173"],
-    methods: ["GET", "POST"],
-    credentials: true
-}))
+app.use(cors(
+    {
+        origin: ["http://localhost:5175"],
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+))
 app.use(cookieParser())
+
 
 
 
@@ -80,7 +83,7 @@ app.get("/home", verifyUser, (req, res) => {
 
 app.get("/logout", (req, res) => {
     res.clearCookie("token")
-    return res.json("Logged Out")
+    return res.json("Logout Successful!")
 })
 
 app.post("/login", (req, res) => {
@@ -93,7 +96,7 @@ app.post("/login", (req, res) => {
                         const token = jwt.sign({ email: user.email }, "jwt-secret-key", { expiresIn: "1d" })
                         res.cookie("token", token)
                         // localStorage.setItem("Token", token)
-                        res.json("Success")
+                        res.json("Login Successful!")
                     }
                     else {
                         res.json("Password is Incorrect.")

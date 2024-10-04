@@ -8,12 +8,16 @@ import DataModels from './dataModels/dataModels.jsx'
 import DataModeling from './DataModelingPage/DataModeling.jsx'
 import NotFound from './NotFound/NotFound.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './Navbar/Navbar.jsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route exact path='/' element={<InitialPage />}></Route>
         <Route exact path='/register' element={<SignUp />}></Route>

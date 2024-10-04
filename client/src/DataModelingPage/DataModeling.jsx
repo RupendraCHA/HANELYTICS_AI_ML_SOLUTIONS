@@ -9,6 +9,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Dropdown } from "antd"
 import { equipmentData } from './EquipmentData.jsx'
+import Navbar from '../Navbar/Navbar.jsx';
+import { toast } from 'react-toastify';
 
 
 const DataModeling = () => {
@@ -62,11 +64,12 @@ const DataModeling = () => {
     }, [])
 
     const handleLogout = () => {
-        alert("Do you want to Log out!!")
+        // alert("Do you want to Log out!!")
         axios.get("http://localhost:3001/logout")
             .then(result => {
                 console.log(result.data)
-                if (result.data === "Logged Out") {
+                if (result.data === "Logout Successful!") {
+                    toast.success(result.data)
                     navigate("/login")
                 }
             })
@@ -162,7 +165,8 @@ const DataModeling = () => {
         }
     ]
 
-    return (
+    return (<>
+        <Navbar />
         <div className='data-modeling-container'>
             <header className='container website-header'>
                 <div className='header-container'>
@@ -377,6 +381,7 @@ const DataModeling = () => {
                 )}
             </div>
         </div>
+    </>
     );
 }
 
