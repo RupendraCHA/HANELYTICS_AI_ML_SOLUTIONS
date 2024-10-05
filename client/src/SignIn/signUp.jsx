@@ -77,6 +77,10 @@ function SignUp() {
                             Register
                         </button>
                     </form>
+                    <div className='checkbox-container'>
+                        <input type='checkbox' required className='checkbox' />
+                        <p>I accept terms & conditions.</p>
+                    </div>
                     <p className='text-white'>Already have an account?</p>
                     <Link to="/login" className='btn btn-default border w-100 bg-success rounded-0 text-decoration-none' style={{ fontWeight: "600" }}>
                         Login

@@ -22,3 +22,19 @@
   font-weight: 500;
   padding-left: 10px;
 }
+.checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.checkbox {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+.checkbox-container p {
+  margin: 0;
+  color: white;
+}
