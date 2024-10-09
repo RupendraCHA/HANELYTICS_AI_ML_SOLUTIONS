@@ -15,6 +15,8 @@ import { toast } from 'react-toastify';
 
 const DataModeling = () => {
 
+    let endpointsArray = ['getInventoryData', 'getRevenueData', 'getEquipmentData', 'getClinicalData']
+
     const inventory_model_datasets = [
         'Order History Data',
         'Order History with Demand Levels',
@@ -30,15 +32,15 @@ const DataModeling = () => {
     const revenue_model_datasets = ['Product Sales Data', 'Product Suppliers', 'Shipping Data', 'Manufacturing Costs Data']
 
     const equipment_model_datasets = ['Sensor Data', 'Failure Data', 'Maintenance Data', 'Operational Data', 'Test Data of Equipment Failure']
+    const clinical_model_datasets = ["Patient Health Profile Data", "Admission Data Of Patient", "Patient Discharge Summary Data"]
 
-
-
-    const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
+    // const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
     const [data, setData] = useState([])
     const [hideShow, setHideShow] = useState(true)
     const [inventoryData, setInventoryData] = useState(true)
     const [revenueData, setRevenueData] = useState(true)
     const [equipmentData1, setEquipmentData] = useState(true)
+    const [clinicalData, setClinicalData] = useState(true)
     const navigate = useNavigate()
     const [activeTab, setActiveTab] = useState('tab1');
 
@@ -75,6 +77,20 @@ const DataModeling = () => {
             })
     }
 
+    // const getDataFromMongoDB = async (endPointString, inventory, revenue, equipment, clinical) => {
+    //     await axios.get(`http://localhost:3001/${endPointString}`)
+    //         .then(result => {
+    //             const Array = result.data
+    //             setData(Array)
+    //             setInventoryData(`${inventory}`)
+    //             setRevenueData(`${revenue}`)
+    //             setEquipmentData(`${equipment}`)
+    //             setClinicalData(`${clinical}`)
+    //             setHideShow(false)
+    //             handleTabClick("tab1")
+    //         }).catch(err => console.log(err))
+    // }
+
     const getInventoryDataFromMongoDB = async () => {
         await axios.get("http://localhost:3001/getInventoryData")
             .then(result => {
@@ -85,6 +101,7 @@ const DataModeling = () => {
                 setInventoryData(false)
                 setRevenueData(true)
                 setEquipmentData(true)
+                setClinicalData(true)
                 setHideShow(false)
                 handleTabClick("tab1")
             }).catch(err => console.log(err))
@@ -101,17 +118,41 @@ const DataModeling = () => {
                 setHideShow(false)
                 setInventoryData(true)
                 setEquipmentData(true)
+                setClinicalData(true)
                 handleTabClick("tab1")
             }).catch(err => console.log(err))
     }
 
-    const getEquipmentDataFromMongoDB = () => {
-        setInventoryData(true)
-        setRevenueData(true)
-        setHideShow(false)
-        setEquipmentData(false)
-        handleTabClick("tab1")
-        setData(equipmentData)
+    const getEquipmentDataFromMongoDB = async () => {
+        await axios.get("http://localhost:3001/getEquipmentData")
+            .then(result => {
+                const Array = result.data
+                // const largeArray = Array.from({ length: 634 }, (_, i) => i);
+                setData(Array)
+                console.log(Array)
+                setRevenueData(true)
+                setHideShow(false)
+                setInventoryData(true)
+                setEquipmentData(false)
+                setClinicalData(true)
+                handleTabClick("tab1")
+            }).catch(err => console.log(err))
+    }
+
+    const getClinicalDataFromMongoDB = async () => {
+        await axios.get("http://localhost:3001/getClinicalData")
+            .then(result => {
+                const Array = result.data
+                // const largeArray = Array.from({ length: 634 }, (_, i) => i);
+                setData(Array)
+                console.log(Array)
+                setRevenueData(true)
+                setHideShow(false)
+                setInventoryData(true)
+                setEquipmentData(true)
+                setClinicalData(false)
+                handleTabClick("tab1")
+            }).catch(err => console.log(err))
     }
 
     const handleResultsData = () => {
@@ -119,6 +160,7 @@ const DataModeling = () => {
         setRevenueData(true)
         setHideShow(true)
         setEquipmentData(true)
+        setClinicalData(true)
     }
 
     const items = [
@@ -135,7 +177,7 @@ const DataModeling = () => {
             key: 2,
             label: (
                 <a id='inventory' onClick={getInventoryDataFromMongoDB}>
-                    Inventory Prediction
+                    Inventory Prediction with live data
                 </a>
             )
         },
@@ -157,6 +199,15 @@ const DataModeling = () => {
         },
         {
             key: 5,
+            label: (
+                <a id='modeling-drop-option2' onClick={getClinicalDataFromMongoDB}>
+                    Clinical Inventory Prediction
+                </a>
+            )
+        }
+        ,
+        {
+            key: 6,
             label: (
                 <a id='modeling-drop-option2' onClick={handleLogout}>
                     Logout
@@ -197,23 +248,11 @@ const DataModeling = () => {
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
                             Equipment Failure Prediction
                         </h2>
-                        <h2 className="model-name">
-                            Predicting Inventory with Clinical Data
+                        <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
+                            Clinical Data Inventory Demand Prediction
                         </h2>
                     </div>
                 </section>
-                {/* <ul className='datasets-section'>
-                    <div style={{ marginTop: "20px" }}>
-                        {datasetsNames.map((dataset) => {
-                            return <DatasetItem dataset={dataset} />
-                        })}
-                    </div>
-                    <div>
-                        <button className='compute-results'>
-                            Compute Results
-                        </button>
-                    </div>
-                </ul>  */}
                 {
                     hideShow && (
                         <div className='charts-section select-model-name empty-bg-image'>
@@ -388,6 +427,66 @@ const DataModeling = () => {
                                     <h1 className='results-heading'>Results:</h1>
                                     <div className='table-container'>
                                         <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                    </div>
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                        </div>
+                    </div>
+
+                )}
+                {!clinicalData && (
+                    <div className='charts-section'>
+                        {/* Tab buttons */}
+                        <div className="tab-buttons">
+                            <button
+                                className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab1')}
+                            >
+                                Datasets
+                            </button>
+                            <button
+                                className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
+                                onClick={() => handleTabClick('tab2')}
+                            >
+                                Data Model Results
+                            </button>
+                        </div>
+
+                        {/* Tab content */}
+                        <div className="tab-content">
+                            {activeTab === 'tab1' && (<>
+                                <div id="tab1" className="content model-datasets-active">
+                                    {clinical_model_datasets.map((eachDataset, index) => {
+                                        return (
+                                            <li key={index} className='model-dataset'>{eachDataset}</li>
+                                        )
+                                    })}
+                                </div>
+                                <div className="button">
+                                    <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                        Back
+                                    </button>
+                                </div>
+                            </>)}
+                            {activeTab === 'tab2' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-container'>
+                                        <div className='pie-chart'>
+                                            <PieChart />
+                                        </div>
+                                        <div className='bar-chart'>
+                                            <BarChart />
+                                        </div>
+                                    </div>
+                                    <h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
                                     </div>
                                     <div className="button">
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>

@@ -77,6 +77,44 @@ app.get("/getRevenueData", async (req, res) => {
     }
 })
 
+app.get("/getEquipmentData", async (req, res) => {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri)
+
+    try {
+        await client.connect()
+
+        const database = client.db("Equipment_Data_With_Random_Regressor")
+        const collection = database.collection("predicted_cycles")
+
+        const allDocuments = await collection.find().toArray()
+        return res.json(allDocuments)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+})
+
+app.get("/getClinicalData", async (req, res) => {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri)
+
+    try {
+        await client.connect()
+
+        const database = client.db("clinical_data")
+        const collection = database.collection("predicted_clinical_data")
+
+        const allDocuments = await collection.find().toArray()
+        return res.json(allDocuments)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+})
+
 app.get("/home", verifyUser, (req, res) => {
     return res.json("Successful")
 })

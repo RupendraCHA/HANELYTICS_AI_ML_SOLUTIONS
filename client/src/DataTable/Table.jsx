@@ -4,7 +4,7 @@ import "./Table.css"
 
 const Table = (props) => {
 
-    const { data, inventoryData, revenueData, equipmentData1 } = props
+    const { data, inventoryData, revenueData, equipmentData1, clinicalData } = props
 
     return (
         <>
@@ -101,6 +101,35 @@ const Table = (props) => {
                                         <td>{eachRow.Historical_Operational_Cycles}</td>
                                         <td>{eachRow.Predicted_Operational_Cycles}</td>
                                         <td>{eachRow.Going_To_Fail_or_Not}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            )}
+            {!clinicalData && (
+                <table className='table'>
+                    <thead >
+                        <tr>
+                            <th className='column-name'>S.No</th>
+                            <th className='column-name'>Medical_Record_Number</th>
+                            <th className='column-name'>Medication</th>
+                            <th className='column-name'>Predicted_Operational_Cycles</th>
+                            <th className='column-name'>Going_To_Fail_or_Not</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            data.map((eachRow, index) => {
+                                {/* console.log(index) */ }
+                                return (
+                                    <tr key={index}>
+                                        <td>{index}</td>
+                                        <td>{eachRow.Medical_Record_Number}</td>
+                                        <td>{eachRow.Medication}</td>
+                                        <td>{eachRow.Medicine_Total_Quantity}</td>
+                                        <td>{eachRow.Predicted_Medical_Quantity_upr}</td>
                                     </tr>
                                 )
                             })
