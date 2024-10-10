@@ -22,7 +22,7 @@ ChartJS.register(
     Legend
 )
 
-const BarChartItem = ({ chartData }) => {
+const BarChartItem = ({ chartData, barChartText }) => {
 
     const options = {
         responsive: true,
@@ -32,8 +32,8 @@ const BarChartItem = ({ chartData }) => {
             },
             title: {
                 display: true,
-                text: "Forecasted results for Sales, Safety Stock, Reorder Quantity",
-                color: "blue"
+                text: `${barChartText}`,
+                color: "white"
             }
         }
     }

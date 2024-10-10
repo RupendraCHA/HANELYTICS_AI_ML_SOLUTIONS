@@ -6,23 +6,23 @@ import { usersData } from "./Data.jsx"
 
 
 
-function BarChart() {
+function BarChart({ barChartText, barChartData }) {
 
     const [userData, setUserData] = useState({
-        labels: usersData.map((data) => data.productName),
+        labels: barChartData.map((data) => data.productName),
         datasets: [{
             label: "Predicted Sales",
-            data: usersData.map((data) => data.PredictedSales),
+            data: barChartData.map((data) => data.PredictedSales),
             backgroundColor: ["blue"],
             // borderColor: "white",
             // borderWidth: 1
         }, {
             label: "Safety Stock",
-            data: usersData.map((data) => data.safetyStock),
+            data: barChartData.map((data) => data.safetyStock),
             backgroundColor: ["red"]
         }, {
             label: "Reorder Point Quantity",
-            data: usersData.map((data) => data.reorderPointQuantity),
+            data: barChartData.map((data) => data.reorderPointQuantity),
             backgroundColor: ["green"]
         }
         ]
@@ -31,7 +31,7 @@ function BarChart() {
     return (
         <div className='bar-chart-container'>
             <div style={{ width: 550 }}>
-                <BarChartItem chartData={userData} />
+                <BarChartItem chartData={userData} barChartText={barChartText} />
             </div>
 
         </div>

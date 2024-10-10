@@ -8,9 +8,20 @@ import Table from "./../DataTable/Table.jsx"
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Dropdown } from "antd"
-import { equipmentData } from './EquipmentData.jsx'
-import Navbar from '../Navbar/Navbar.jsx';
+// import Navbar from '../Navbar/Navbar.jsx';
 import { toast } from 'react-toastify';
+
+import {
+    inventoryPieData,
+    revenuePieData,
+    equipmentPieData,
+    clinicalPieData,
+    inventoryBarData,
+    revenueBarData,
+    equipmentBarData,
+    clinicalBarData
+} from './ChartsData/ChartData.jsx';
+
 
 
 const DataModeling = () => {
@@ -32,7 +43,17 @@ const DataModeling = () => {
     const revenue_model_datasets = ['Product Sales Data', 'Product Suppliers', 'Shipping Data', 'Manufacturing Costs Data']
 
     const equipment_model_datasets = ['Sensor Data', 'Failure Data', 'Maintenance Data', 'Operational Data', 'Test Data of Equipment Failure']
-    const clinical_model_datasets = ["Patient Health Profile Data", "Admission Data Of Patient", "Patient Discharge Summary Data"]
+    const clinical_model_datasets = [
+        "Patient Health Profile Data",
+        "Distribution Centers Information",
+        "Admission Data Of Patient",
+        "Clinics Information Data",
+        "Patient Discharge Summary Data",
+        "Clinical Inventory Data",
+        "Shipping History",
+        "Orders and Transactions Data",
+        "Product/Drug Information"
+    ]
 
     // const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
     const [data, setData] = useState([])
@@ -249,7 +270,6 @@ const DataModeling = () => {
                 {!inventoryData && (
 
                     <div className='charts-section'>
-                        {/* Tab buttons */}
                         <div className="tab-buttons">
                             <button
                                 className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
@@ -265,7 +285,7 @@ const DataModeling = () => {
                             </button>
                         </div>
 
-                        {/* Tab content */}
+
                         <div className="tab-content">
                             {activeTab === 'tab1' && (<>
                                 <div id="tab1" className="content model-datasets-active">
@@ -285,10 +305,10 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Revenue Share of each Category"} />
+                                            <PieChart chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart />
+                                            <BarChart barChartText={"Forecasted results for Sales, Safety Stock & Reorder Quantity"} barChartData={inventoryBarData} />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -344,10 +364,10 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Revenue Share of each Category"} />
+                                            <PieChart chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart />
+                                            <BarChart barChartText={"Generation Of Revenue in Future"} barChartData={revenueBarData} />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -404,10 +424,10 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart />
+                                            <PieChart chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart />
+                                            <BarChart barChartText={"Equipment Failure representation in cycles"} barChartData={equipmentBarData} />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -464,10 +484,10 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart />
+                                            <PieChart chartText={"Drugs involved in Predictions"} pieChartData={clinicalPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart />
+                                            <BarChart barChartText={"Clinical Prediction Data"} barChartData={clinicalBarData} />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>

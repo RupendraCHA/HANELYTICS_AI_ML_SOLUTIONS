@@ -21,36 +21,37 @@ export const usersData = [
         category: "Generic drugs",
         revenue: 1698700,
     }
-    // ,
-    // {
-    //     id: 205,
-    //     productName: "Defibrillator",
-    //     PredictedSales: 19764,
-    //     safetyStock: 2932,
-    //     reorderPointQuantity: 6500
-    // },
-    // {
-    //     id: 206,
-    //     productName: "ECG Machine",
-    //     PredictedSales: 11456,
-    //     safetyStock: 3423,
-    //     reorderPointQuantity: 9765
-    // },
-    // {
-    //     id: 208,
-    //     productName: "X-Ray Machine",
-    //     PredictedSales: 13998,
-    //     safetyStock: 2567,
-    //     reorderPointQuantity: 6789
-    // },
-    // {
-    //     id: 209,
-    //     productName: "Blood Pressure Monitor",
-    //     PredictedSales: 9873,
-    //     safetyStock: 4678,
-    //     reorderPointQuantity: 8231
-    // }
 ]
+// ,
+// {
+//     id: 205,
+//     productName: "Defibrillator",
+//     PredictedSales: 19764,
+//     safetyStock: 2932,
+//     reorderPointQuantity: 6500
+// },
+// {
+//     id: 206,
+//     productName: "ECG Machine",
+//     PredictedSales: 11456,
+//     safetyStock: 3423,
+//     reorderPointQuantity: 9765
+// },
+// {
+//     id: 208,
+//     productName: "X-Ray Machine",
+//     PredictedSales: 13998,
+//     safetyStock: 2567,
+//     reorderPointQuantity: 6789
+// },
+// {
+//     id: 209,
+//     productName: "Blood Pressure Monitor",
+//     PredictedSales: 9873,
+//     safetyStock: 4678,
+//     reorderPointQuantity: 8231
+// }
+
 
 // const usersData = [
 //     {

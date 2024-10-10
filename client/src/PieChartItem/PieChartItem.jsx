@@ -9,7 +9,7 @@ ChartJS.register(
     ArcElement
 )
 
-const PieChartItem = ({ chartData }) => {
+const PieChartItem = ({ chartData, chartText }) => {
 
     const options = {
         responsive: true,
@@ -19,8 +19,8 @@ const PieChartItem = ({ chartData }) => {
             },
             title: {
                 display: true,
-                text: "Revenue Share of each Category",
-                color: "blue"
+                text: `${chartText}`,
+                color: "white"
             }
         }
     }

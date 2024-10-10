@@ -6,15 +6,15 @@ import { usersData } from "./Sales.jsx"
 
 
 
-function PieChart({ chartText }) {
+function PieChart({ chartText, pieChartData }) {
 
     const [userData, setUserData] = useState({
         // 
-        labels: usersData.map((data) => data.category),
+        labels: pieChartData.map((data) => data.category),
         datasets: [{
-            label: "Revenue Generated",
-            data: usersData.map((data) => data.revenue),
-            backgroundColor: ["#756432", "#ff0000", "#00ff00", "#323f4b"],
+            // label: "Sales Data",
+            data: pieChartData.map((data) => data.revenue),
+            backgroundColor: ["#756432", "#ffaa00", "#323f4b", "#00ff00", "#020230"],
             borderColor: "white",
             borderWidth: 1,
 
