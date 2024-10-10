@@ -55,7 +55,7 @@ function Login() {
         <>
             <Navbar />
             <div className='bg-container-login d-flex justify-content-center align-items-center bg-secondary vh-100'>
-                <div className='bg-secondary p-4 rounded-4 login-card' style={{ opacity: "0.9" }}>
+                <div className='bg-primary p-4 text-white rounded-4 login-card' style={{ opacity: "0.9" }}>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>

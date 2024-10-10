@@ -6,22 +6,20 @@ import { usersData } from "./Data.jsx"
 
 
 
-function BarChart({ barChartText, barChartData }) {
+function BarChart({ barChartText, barChartData, labelsData }) {
 
     const [userData, setUserData] = useState({
         labels: barChartData.map((data) => data.productName),
         datasets: [{
-            label: "Predicted Sales",
+            label: labelsData[0],
             data: barChartData.map((data) => data.PredictedSales),
             backgroundColor: ["blue"],
-            // borderColor: "white",
-            // borderWidth: 1
         }, {
-            label: "Safety Stock",
+            label: labelsData[1],
             data: barChartData.map((data) => data.safetyStock),
             backgroundColor: ["red"]
         }, {
-            label: "Reorder Point Quantity",
+            label: labelsData[2],
             data: barChartData.map((data) => data.reorderPointQuantity),
             backgroundColor: ["green"]
         }

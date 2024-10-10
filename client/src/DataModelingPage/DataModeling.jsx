@@ -244,7 +244,7 @@ const DataModeling = () => {
             </header>
             <div className='container data-models-section-container'>
                 <section className='workflows-section'>
-                    <h1 className='use-case-heading' onClick={handleResultsData}>Use Cases</h1>
+                    <h1 className='use-case-heading' onClick={handleResultsData}>Data Models</h1>
                     <div className='data-model-types'>
                         <h2 className={inventoryData === true ? 'model-name' : "active"} onClick={getInventoryDataFromMongoDB}>
                             Predicting Inventory Reorder Point & Safety Stock
@@ -263,7 +263,7 @@ const DataModeling = () => {
                 {
                     hideShow && (
                         <div className='charts-section select-model-name empty-bg-image'>
-                            <h2 className='select-text'>Select the Use Case to view the results</h2>
+                            <h2 className='select-text'>Select the Data Model to view the results</h2>
                         </div>
                     )
                 }
@@ -308,7 +308,11 @@ const DataModeling = () => {
                                             <PieChart chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart barChartText={"Forecasted results for Sales, Safety Stock & Reorder Quantity"} barChartData={inventoryBarData} />
+                                            <BarChart
+                                                barChartText={"Forecasted results for Sales, Safety Stock & Reorder Quantity"}
+                                                barChartData={inventoryBarData}
+                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
+                                            />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -367,7 +371,11 @@ const DataModeling = () => {
                                             <PieChart chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart barChartText={"Generation Of Revenue in Future"} barChartData={revenueBarData} />
+                                            <BarChart
+                                                barChartText={"Generation Of Revenue in Future"}
+                                                barChartData={revenueBarData}
+                                                labelsData={["Sales", "Inventory Levels", "Quantity for each Order"]}
+                                            />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -427,7 +435,11 @@ const DataModeling = () => {
                                             <PieChart chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart barChartText={"Equipment Failure representation in cycles"} barChartData={equipmentBarData} />
+                                            <BarChart
+                                                barChartText={"Equipment Failure representation in cycles"}
+                                                barChartData={equipmentBarData}
+                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
+                                            />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
@@ -487,7 +499,11 @@ const DataModeling = () => {
                                             <PieChart chartText={"Drugs involved in Predictions"} pieChartData={clinicalPieData} />
                                         </div>
                                         <div className='bar-chart'>
-                                            <BarChart barChartText={"Clinical Prediction Data"} barChartData={clinicalBarData} />
+                                            <BarChart
+                                                barChartText={"Clinical Prediction Data"}
+                                                barChartData={clinicalBarData}
+                                                labelsData={["Current Inventory Level", "Drugs Consumed", "Predicted Drug Demand"]}
+                                            />
                                         </div>
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>

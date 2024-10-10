@@ -139,67 +139,8 @@ export const inventoryBarData = [
         PredictedSales: 19764,
         safetyStock: 2932,
         reorderPointQuantity: 6500
-    }
-]
-// {
-//     id: 206,
-//     productName: "ECG Machine",
-//     PredictedSales: 11456,
-//     safetyStock: 3423,
-//     reorderPointQuantity: 9765
-// },
-// {
-//     id: 208,
-//     productName: "X-Ray Machine",
-//     PredictedSales: 13998,
-//     safetyStock: 2567,
-//     reorderPointQuantity: 6789
-// },
-// {
-//     id: 209,
-//     productName: "Blood Pressure Monitor",
-//     PredictedSales: 9873,
-//     safetyStock: 4678,
-//     reorderPointQuantity: 8231
-// }
+    },
 
-export const revenueBarData = [
-
-    {
-        id: 201,
-        productName: "Stethoscope",
-        PredictedSales: 16897,
-        safetyStock: 1368,
-        reorderPointQuantity: 7868
-    },
-    {
-        id: 202,
-        productName: "Infusion Pump",
-        PredictedSales: 12765,
-        safetyStock: 2654,
-        reorderPointQuantity: 6543
-    },
-    {
-        id: 203,
-        productName: "Ventilator",
-        PredictedSales: 23876,
-        safetyStock: 4679,
-        reorderPointQuantity: 9076
-    },
-    {
-        id: 204,
-        productName: "MRI Machine",
-        PredictedSales: 14874,
-        safetyStock: 6324,
-        reorderPointQuantity: 13460
-    },
-    {
-        id: 205,
-        productName: "Defibrillator",
-        PredictedSales: 19764,
-        safetyStock: 2932,
-        reorderPointQuantity: 6500
-    },
     {
         id: 206,
         productName: "ECG Machine",
@@ -227,14 +168,14 @@ export const equipmentBarData = [
 
     {
         id: 201,
-        productName: "Stethoscope",
+        productName: "Pulse oximeter",
         PredictedSales: 16897,
         safetyStock: 1368,
         reorderPointQuantity: 7868
     },
     {
         id: 202,
-        productName: "Infusion Pump",
+        productName: "Ultrasonic Testing Device",
         PredictedSales: 12765,
         safetyStock: 2654,
         reorderPointQuantity: 6543
@@ -253,49 +194,110 @@ export const equipmentBarData = [
         safetyStock: 6324,
         reorderPointQuantity: 13460
     },
+    // {
+    //     id: 205,
+    //     productName: "Defibrillator",
+    //     PredictedSales: 19764,
+    //     safetyStock: 2932,
+    //     reorderPointQuantity: 6500
+    // },
     {
-        id: 205,
-        productName: "Defibrillator",
-        PredictedSales: 19764,
-        safetyStock: 2932,
-        reorderPointQuantity: 6500
+        id: 206,
+        productName: "ECG Machine",
+        PredictedSales: 11456,
+        safetyStock: 3423,
+        reorderPointQuantity: 9765
+    },
+    {
+        id: 208,
+        productName: "X-Ray Machine",
+        PredictedSales: 13998,
+        safetyStock: 2567,
+        reorderPointQuantity: 6789
     }
+    // {
+    //     id: 209,
+    //     productName: "Blood Pressure Monitor",
+    //     PredictedSales: 9873,
+    //     safetyStock: 4678,
+    //     reorderPointQuantity: 8231
+    // }
+]
+
+export const revenueBarData = [
+
+    {
+        id: 201,
+        productName: "antibiotics",
+        PredictedSales: 16897,
+        safetyStock: 1368,
+        reorderPointQuantity: 7868
+    },
+    {
+        id: 202,
+        productName: "antivirals",
+        PredictedSales: 12765,
+        safetyStock: 2654,
+        reorderPointQuantity: 6543
+    },
+    {
+        id: 203,
+        productName: "analgesics",
+        PredictedSales: 23876,
+        safetyStock: 4679,
+        reorderPointQuantity: 9076
+    },
+    {
+        id: 204,
+        productName: "Generic Drugs",
+        PredictedSales: 14874,
+        safetyStock: 6324,
+        reorderPointQuantity: 13460
+    }
+    // ,
+    // {
+    //     id: 205,
+    //     productName: "Defibrillator",
+    //     PredictedSales: 19764,
+    //     safetyStock: 2932,
+    //     reorderPointQuantity: 6500
+    // }
 ]
 export const clinicalBarData = [
 
     {
         id: 201,
-        productName: "Stethoscope",
-        PredictedSales: 16897,
-        safetyStock: 1368,
-        reorderPointQuantity: 7868
+        productName: "Aspirin",
+        PredictedSales: 5674,
+        safetyStock: 10879,
+        reorderPointQuantity: 11251.044495607315
     },
     {
         id: 202,
-        productName: "Infusion Pump",
+        productName: "Ibuprofen",
         PredictedSales: 12765,
-        safetyStock: 2654,
-        reorderPointQuantity: 6543
+        safetyStock: 11127,
+        reorderPointQuantity: 11283.99231010411
     },
     {
         id: 203,
         productName: "Ventilator",
         PredictedSales: 23876,
-        safetyStock: 4679,
-        reorderPointQuantity: 9076
+        safetyStock: 11140,
+        reorderPointQuantity: 11297.084033030933
     },
     {
         id: 204,
-        productName: "MRI Machine",
+        productName: "Lipitor",
         PredictedSales: 14874,
-        safetyStock: 6324,
-        reorderPointQuantity: 13460
+        safetyStock: 11071,
+        reorderPointQuantity: 11228.070904560955
     },
     {
         id: 205,
-        productName: "Defibrillator",
+        productName: "Paracetamol",
         PredictedSales: 19764,
-        safetyStock: 2932,
-        reorderPointQuantity: 6500
+        safetyStock: 11068,
+        reorderPointQuantity: 11157.219000688516
     }
 ]
