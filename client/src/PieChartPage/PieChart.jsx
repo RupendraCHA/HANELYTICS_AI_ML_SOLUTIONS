@@ -6,7 +6,7 @@ import { usersData } from "./Sales.jsx"
 
 
 
-function PieChart() {
+function PieChart({ chartText }) {
 
     const [userData, setUserData] = useState({
         // 
@@ -27,7 +27,7 @@ function PieChart() {
     return (
         <div className='pie-chart-container'>
             <div style={{ width: 260 }}>
-                <PieChartItem chartData={userData} />
+                <PieChartItem chartData={userData} chartText={chartText} />
             </div>
 
         </div>

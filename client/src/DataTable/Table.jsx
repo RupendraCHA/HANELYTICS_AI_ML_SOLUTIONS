@@ -11,6 +11,7 @@ const Table = (props) => {
             {!inventoryData && (<table className='table'>
                 <thead >
                     <tr>
+                        <th className='column-name'>S.No</th>
                         <th className='column-name'>Product_Id</th>
                         <th className='column-name'>Product_Name</th>
                         <th className='column-name'>Lead_time_in_Days</th>
@@ -32,6 +33,7 @@ const Table = (props) => {
                             {/* console.log(index) */ }
                             return (
                                 <tr key={index}>
+                                    <td>{index + 1}</td>
                                     <td>{eachRow.Product_ID}</td>
                                     <td>{eachRow.Product_Name}</td>
                                     <td>{eachRow.Lead_time_in_Days}</td>
@@ -56,8 +58,11 @@ const Table = (props) => {
                     <thead >
                         <tr>
                             <th className='column-name'>S_no</th>
+                            <th className='column-name'>Product_Type</th>
+                            <th className='column-name'>SKU</th>
                             <th className='column-name'>Week</th>
                             <th className='column-name'>Day_ofThe_Week</th>
+                            <th className='column-name'>Transportation_Mode</th>
                             <th className='column-name'>Forecasted_Revenue_For_21_Days</th>
 
                         </tr>
@@ -65,13 +70,15 @@ const Table = (props) => {
                     <tbody>
                         {
                             data.map((eachRow, index) => {
-                                {/* console.log(index) */ }
                                 return (
                                     <tr key={index}>
-                                        <td>{eachRow.S_no}</td>
+                                        <td>{index + 1}</td>
+                                        <td>{eachRow.Product_Type}</td>
+                                        <td>{eachRow.SKU}</td>
                                         <td>{eachRow.Week}</td>
                                         <td>{eachRow.Day_Of_The_Week}</td>
-                                        <td>{eachRow.Forecasted_Revenue_For_21_Days}</td>
+                                        <td>{eachRow.Transportation_Modes}</td>
+                                        <td>{eachRow.Forecasted_Revenue_For_80_Days}</td>
                                     </tr>
                                 )
                             })
@@ -96,7 +103,7 @@ const Table = (props) => {
                                 {/* console.log(index) */ }
                                 return (
                                     <tr key={index}>
-                                        <td>{index}</td>
+                                        <td>{index + 1}</td>
                                         <td>{eachRow.equipment_Id}</td>
                                         <td>{eachRow.Historical_Operational_Cycles}</td>
                                         <td>{eachRow.Predicted_Operational_Cycles}</td>
@@ -114,9 +121,9 @@ const Table = (props) => {
                         <tr>
                             <th className='column-name'>S.No</th>
                             <th className='column-name'>Medical_Record_Number</th>
-                            <th className='column-name'>Medication</th>
-                            <th className='column-name'>Predicted_Operational_Cycles</th>
-                            <th className='column-name'>Going_To_Fail_or_Not</th>
+                            <th className='column-name'>Drug_Name</th>
+                            <th className='column-name'>Medicine_Consumed_Quantity</th>
+                            <th className='column-name'>Predicted_Demand_Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -125,11 +132,11 @@ const Table = (props) => {
                                 {/* console.log(index) */ }
                                 return (
                                     <tr key={index}>
-                                        <td>{index}</td>
+                                        <td>{index + 1}</td>
                                         <td>{eachRow.Medical_Record_Number}</td>
-                                        <td>{eachRow.Medication}</td>
-                                        <td>{eachRow.Medicine_Total_Quantity}</td>
-                                        <td>{eachRow.Predicted_Medical_Quantity_upr}</td>
+                                        <td>{eachRow.Drug_Name}</td>
+                                        <td>{eachRow.Quantity_Of_Drug_Consumption_By_Firms}</td>
+                                        <td>{eachRow.Predicted_Qunatity_Of_Demand}</td>
                                     </tr>
                                 )
                             })

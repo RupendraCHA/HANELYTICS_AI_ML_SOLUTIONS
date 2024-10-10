@@ -77,20 +77,6 @@ const DataModeling = () => {
             })
     }
 
-    // const getDataFromMongoDB = async (endPointString, inventory, revenue, equipment, clinical) => {
-    //     await axios.get(`http://localhost:3001/${endPointString}`)
-    //         .then(result => {
-    //             const Array = result.data
-    //             setData(Array)
-    //             setInventoryData(`${inventory}`)
-    //             setRevenueData(`${revenue}`)
-    //             setEquipmentData(`${equipment}`)
-    //             setClinicalData(`${clinical}`)
-    //             setHideShow(false)
-    //             handleTabClick("tab1")
-    //         }).catch(err => console.log(err))
-    // }
-
     const getInventoryDataFromMongoDB = async () => {
         await axios.get("http://localhost:3001/getInventoryData")
             .then(result => {
@@ -177,7 +163,7 @@ const DataModeling = () => {
             key: 2,
             label: (
                 <a id='inventory' onClick={getInventoryDataFromMongoDB}>
-                    Inventory Prediction with live data
+                    Inventory Forecasting with live data
                 </a>
             )
         },
@@ -200,8 +186,8 @@ const DataModeling = () => {
         {
             key: 5,
             label: (
-                <a id='modeling-drop-option2' onClick={getClinicalDataFromMongoDB}>
-                    Clinical Inventory Prediction
+                <a id='inventory' onClick={getClinicalDataFromMongoDB}>
+                    Clinical Demand Prediction
                 </a>
             )
         }
@@ -299,7 +285,7 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart />
+                                            <PieChart chartText={"Revenue Share of each Category"} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart />
@@ -307,7 +293,7 @@ const DataModeling = () => {
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
                                     <div className='table-container'>
-                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
                                     </div>
                                     <div className="button">
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
@@ -358,7 +344,7 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart />
+                                            <PieChart chartText={"Revenue Share of each Category"} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart />
@@ -366,7 +352,7 @@ const DataModeling = () => {
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
                                     <div className='table-container'>
-                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
                                     </div>
                                     <div className="button">
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
@@ -426,7 +412,7 @@ const DataModeling = () => {
                                     </div>
                                     <h1 className='results-heading'>Results:</h1>
                                     <div className='table-container'>
-                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} />
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
                                     </div>
                                     <div className="button">
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
