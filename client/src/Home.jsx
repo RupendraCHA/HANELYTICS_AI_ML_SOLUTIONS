@@ -51,7 +51,7 @@ function Home() {
 
                     <Link to="/dataModeling">
                         <button className='text-decoration-none text-white bg-primary rounded-4 border-none p-3 m-3' style={{ fontWeight: 700 }}>
-                            Go for Data Modeling
+                            Start Working With Data Models
                         </button>
                     </Link>
                     <Link to="/login">

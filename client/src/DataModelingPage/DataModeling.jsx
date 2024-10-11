@@ -250,13 +250,13 @@ const DataModeling = () => {
                             Predicting Inventory Reorder Point & Safety Stock With Live Data
                         </h2>
                         <h2 className={revenueData === true ? 'model-name' : "active"} onClick={getRevenueDataFromMongoDB}>
-                            Forecasting Revenue/Demand Sensing
+                            Predicting Revenue/Demand Sensing
                         </h2>
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
                             Equipment Failure Prediction
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Clinical Data (Drug) Inventory Demand Predictions
+                            Clinical Data (Medicine/Drug) Inventory Predictions
                         </h2>
                     </div>
                 </section>
