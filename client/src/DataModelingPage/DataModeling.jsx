@@ -247,16 +247,16 @@ const DataModeling = () => {
                     <h1 className='use-case-heading' onClick={handleResultsData}>Data Models</h1>
                     <div className='data-model-types'>
                         <h2 className={inventoryData === true ? 'model-name' : "active"} onClick={getInventoryDataFromMongoDB}>
-                            Predicting Inventory Reorder Point & Safety Stock
+                            Predicting Inventory Reorder Point & Safety Stock With Live Data
                         </h2>
                         <h2 className={revenueData === true ? 'model-name' : "active"} onClick={getRevenueDataFromMongoDB}>
-                            Revenue/Demand Sensing
+                            Forecasting Revenue/Demand Sensing
                         </h2>
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
                             Equipment Failure Prediction
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Clinical Data Inventory Demand Prediction
+                            Clinical Data (Drug) Inventory Demand Predictions
                         </h2>
                     </div>
                 </section>
@@ -496,13 +496,13 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Drugs involved in Predictions"} pieChartData={clinicalPieData} />
+                                            <PieChart chartText={"Predicted Consumption Quantity of Drugs"} pieChartData={clinicalPieData} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart
-                                                barChartText={"Clinical Prediction Data"}
+                                                barChartText={"Clinical Data Visual Representation"}
                                                 barChartData={clinicalBarData}
-                                                labelsData={["Current Inventory Level", "Drugs Consumed", "Predicted Drug Demand"]}
+                                                labelsData={["Safety Stock Required", "Drugs Consumed", "Reorder Point Quantity"]}
                                             />
                                         </div>
                                     </div>

@@ -55,7 +55,7 @@ function Login() {
         <>
             <Navbar />
             <div className='bg-container-login d-flex justify-content-center align-items-center bg-secondary vh-100'>
-                <div className='bg-primary p-4 text-white rounded-4 login-card' style={{ opacity: "0.9" }}>
+                <div className='bg-success p-4 text-white rounded-4 login-card' style={{ opacity: "0.9" }}>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
@@ -86,7 +86,7 @@ function Login() {
 
                             />
                         </div>
-                        <button type='submit' className='btn btn-secondary bg-success w-100 rounded-0' style={{ fontWeight: "600" }}>
+                        <button type='submit' className='btn btn-primary bg-primary w-100 rounded-0' style={{ fontWeight: "600" }}>
                             Login
                         </button>
                     </form>

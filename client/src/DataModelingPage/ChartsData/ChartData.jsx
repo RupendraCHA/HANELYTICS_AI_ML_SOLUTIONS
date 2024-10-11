@@ -77,29 +77,29 @@ export const clinicalPieData = [
     {
         id: 1,
         category: "Aspirin",
-        revenue: 14563,
+        revenue: 11191.71,
     },
     {
         id: 2,
         category: "Ibuprofen",
-        revenue: 11789,
+        revenue: 11201.25,
     },
     {
         id: 3,
         category: "Lipitor",
-        revenue: 8456,
+        revenue: 11225.22,
     }
     ,
     {
         id: 4,
         category: "Paracetamol",
-        revenue: 15432,
+        revenue: 11160.97,
     }
     ,
     {
-        id: 4,
+        id: 5,
         category: "Penicillin",
-        revenue: 18397,
+        revenue: 11166.87,
     }
 ]
 
@@ -268,36 +268,36 @@ export const clinicalBarData = [
     {
         id: 201,
         productName: "Aspirin",
-        PredictedSales: 5674,
-        safetyStock: 10879,
-        reorderPointQuantity: 11251.044495607315
+        PredictedSales: 10800,
+        safetyStock: 11094,
+        reorderPointQuantity: 18990
     },
     {
         id: 202,
         productName: "Ibuprofen",
-        PredictedSales: 12765,
+        PredictedSales: 8940,
         safetyStock: 11127,
-        reorderPointQuantity: 11283.99231010411
+        reorderPointQuantity: 13700
     },
     {
         id: 203,
         productName: "Ventilator",
-        PredictedSales: 23876,
+        PredictedSales: 14010,
         safetyStock: 11140,
-        reorderPointQuantity: 11297.084033030933
+        reorderPointQuantity: 18482
     },
     {
         id: 204,
         productName: "Lipitor",
-        PredictedSales: 14874,
+        PredictedSales: 41880,
         safetyStock: 11071,
-        reorderPointQuantity: 11228.070904560955
+        reorderPointQuantity: 43000
     },
     {
         id: 205,
         productName: "Paracetamol",
-        PredictedSales: 19764,
+        PredictedSales: 36330,
         safetyStock: 11068,
-        reorderPointQuantity: 11157.219000688516
+        reorderPointQuantity: 40005
     }
 ]
