@@ -307,9 +307,13 @@ ul {
 .button {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
+  gap: 20px;
 }
-
+.results {
+  font-weight: bold;
+}
 /* General tab button styling */
 
 /* General tab button styling */

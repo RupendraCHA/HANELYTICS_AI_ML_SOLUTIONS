@@ -21,7 +21,6 @@ const Table = (props) => {
                         <th className='column-name'>Product_Name</th>
                         <th className='column-name'>Lead_time_in_Days</th>
                         <th className='column-name'>Average_Monthly_Sales</th>
-                        <th className='column-name'>Avg_Monthly_Sales_New</th>
                         <th className='column-name'>Predicted_monthly_sales</th>
                         <th className='column-name'>Predicted_monthly_sales_New</th>
                         <th className='column-name'>Average_daily_sales</th>
@@ -43,7 +42,6 @@ const Table = (props) => {
                                     <td>{eachRow.Product_Name}</td>
                                     <td>{eachRow.Lead_time_in_Days}</td>
                                     <td>{eachRow.Avarage_Monthly_Sales}</td>
-                                    <td>{eachRow.Avg_Monthly_Sales_New}</td>
                                     <td>{eachRow.Predicted_monthly_sales}</td>
                                     <td>{eachRow.Predicted_monthly_sales_New}</td>
                                     <td>{eachRow.Avarage_daily_sales}</td>
@@ -65,9 +63,8 @@ const Table = (props) => {
                             <th className='column-name'>S_no</th>
                             <th className='column-name'>Product_Type</th>
                             <th className='column-name'>SKU</th>
-                            <th className='column-name'>Forecasted_Revenue_For_80_Days</th>
+                            <th className='column-name'>Predicted_Revenue_For_90_Days</th>
                             <th className='column-name'>Week</th>
-                            <th className='column-name'>Day_ofThe_Week</th>
                             <th className='column-name'>Transportation_Mode</th>
 
                         </tr>
@@ -80,9 +77,8 @@ const Table = (props) => {
                                         <td>{index + 1}</td>
                                         <td>{eachRow.Product_Type}</td>
                                         <td>UMI{eachRow.SKU}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Forecasted_Revenue_For_80_Days, 2)}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Forecasted_Revenue_For_90_Days, 2)}</td>
                                         <td>{eachRow.Week}</td>
-                                        <td>{eachRow.Day_Of_The_Week}</td>
                                         <td>{eachRow.Transportation_Modes}</td>
                                     </tr>
                                 )
@@ -98,8 +94,7 @@ const Table = (props) => {
                             <th className='column-name'>S.No</th>
                             <th className='column-name'>Equipment_Id</th>
                             <th className='column-name'>Historical_Operational_Cycles</th>
-                            <th className='column-name'>Predicted_Operational_Cycles</th>
-                            <th className='column-name'>Going_To_Fail_or_Not</th>
+                            <th className='column-name'>Predicted_Equipment_Failure_Cycles_Threshold</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -111,8 +106,7 @@ const Table = (props) => {
                                         <td>{index + 1}</td>
                                         <td>EUID{eachRow.equipment_Id}</td>
                                         <td>{eachRow.Historical_Operational_Cycles}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Operational_Cycles, 0)}</td>
-                                        <td>{eachRow.Going_To_Fail_or_Not}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Failure_Cycles_Threshold, 2)}</td>
                                     </tr>
                                 )
                             })

@@ -192,7 +192,7 @@ const DataModeling = () => {
             key: 3,
             label: (
                 <a id='revenue' onClick={getRevenueDataFromMongoDB}>
-                    Revenue Demand/Sensing
+                    Predicting Revenue Demand/Sensing
                 </a>
             )
         },
@@ -200,7 +200,7 @@ const DataModeling = () => {
             key: 4,
             label: (
                 <a id='e-failure' onClick={getEquipmentDataFromMongoDB}>
-                    Equipment Failure
+                    Equipment Failure Prediction
                 </a>
             )
         },
@@ -208,7 +208,7 @@ const DataModeling = () => {
             key: 5,
             label: (
                 <a id='inventory' onClick={getClinicalDataFromMongoDB}>
-                    Clinical Demand Prediction
+                    Inventory Prediction With Clinical Data
                 </a>
             )
         }
@@ -256,7 +256,7 @@ const DataModeling = () => {
                             Equipment Failure Prediction
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Clinical Data (Medicine/Drug) Inventory Predictions
+                            Inventory Predictions With Clinical Data
                         </h2>
                     </div>
                 </section>
@@ -275,13 +275,13 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab1')}
                             >
-                                Datasets
+                                Data Resources
                             </button>
                             <button
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Data Model Results
+                                Get Model Insights
                             </button>
                         </div>
 
@@ -299,6 +299,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -323,6 +324,7 @@ const DataModeling = () => {
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                             Back
                                         </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources</button>
                                     </div>
                                 </div>
                             )}
@@ -338,13 +340,13 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab1')}
                             >
-                                Datasets
+                                Data Resources
                             </button>
                             <button
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Data Model Results
+                                Get Model Insights
                             </button>
                         </div>
 
@@ -362,6 +364,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -386,6 +389,7 @@ const DataModeling = () => {
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                             Back
                                         </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources</button>
                                     </div>
                                 </div>
                             )}
@@ -402,13 +406,13 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab1')}
                             >
-                                Datasets
+                                Data Resources
                             </button>
                             <button
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Data Model Results
+                                Get Model Insights
                             </button>
                         </div>
 
@@ -426,6 +430,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -450,6 +455,7 @@ const DataModeling = () => {
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                             Back
                                         </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources</button>
                                     </div>
                                 </div>
                             )}
@@ -466,13 +472,13 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab1' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab1')}
                             >
-                                Datasets
+                                Data Resources
                             </button>
                             <button
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Data Model Results
+                                Get Model Insights
                             </button>
                         </div>
 
@@ -490,6 +496,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -514,6 +521,7 @@ const DataModeling = () => {
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                             Back
                                         </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources</button>
                                     </div>
                                 </div>
                             )}
