@@ -246,6 +246,7 @@ const DataModeling = () => {
                 <section className='workflows-section'>
                     <h1 className='use-case-heading' onClick={handleResultsData}>Data Models</h1>
                     <div className='data-model-types'>
+
                         <h2 className={inventoryData === true ? 'model-name' : "active"} onClick={getInventoryDataFromMongoDB}>
                             Predicting Inventory Reorder Point & Safety Stock With Live Data
                         </h2>
@@ -258,6 +259,7 @@ const DataModeling = () => {
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
                             Predicting Inventory Requirements With Clinical Data
                         </h2>
+
                     </div>
                 </section>
                 {
