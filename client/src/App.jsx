@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './Navbar/Navbar.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import Footer from "./Footer/Footer.jsx"
 
 
 function App() {

@@ -184,7 +184,7 @@ const DataModeling = () => {
             key: 2,
             label: (
                 <a id='inventory' onClick={getInventoryDataFromMongoDB}>
-                    Inventory Forecasting with live data
+                    1) Inventory Forecasting with live data
                 </a>
             )
         },
@@ -192,7 +192,7 @@ const DataModeling = () => {
             key: 3,
             label: (
                 <a id='revenue' onClick={getRevenueDataFromMongoDB}>
-                    Predicting Revenue Demand/Sensing
+                    2) Predicting Revenue Demand/Sensing
                 </a>
             )
         },
@@ -200,7 +200,7 @@ const DataModeling = () => {
             key: 4,
             label: (
                 <a id='e-failure' onClick={getEquipmentDataFromMongoDB}>
-                    Equipment Failure Prediction
+                    3) Equipment Failure Prediction
                 </a>
             )
         },
@@ -208,7 +208,7 @@ const DataModeling = () => {
             key: 5,
             label: (
                 <a id='inventory' onClick={getClinicalDataFromMongoDB}>
-                    Inventory Prediction With Clinical Data
+                    4) Inventory Prediction With Clinical Data
                 </a>
             )
         }
@@ -253,10 +253,10 @@ const DataModeling = () => {
                             Predicting Revenue/Demand Sensing
                         </h2>
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
-                            Equipment Failure Prediction
+                            Predicting Equipment Failure
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Inventory Predictions With Clinical Data
+                            Predicting Inventory Requirements With Clinical Data
                         </h2>
                     </div>
                 </section>
@@ -443,7 +443,7 @@ const DataModeling = () => {
                                             <BarChart
                                                 barChartText={"Equipment Failure representation in cycles"}
                                                 barChartData={equipmentBarData}
-                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
+                                                labelsData={["Quantity of Demand", "Historical Cycles", "Predicted Failure Cycles"]}
                                             />
                                         </div>
                                     </div>
