@@ -17,18 +17,18 @@ const Table = (props) => {
                 <thead >
                     <tr>
                         <th className='column-name'>S.No</th>
-                        <th className='column-name'>Product_Id</th>
+                        <th className='column-name'>Product_Identifier</th>
                         <th className='column-name'>Product_Name</th>
-                        <th title="Time required to transport the product" className='column-name'>Lead_time_in_Days</th>
+                        <th title="Time required to transport the product" className='column-name'>Order_Fulfillment_Time (in Days)</th>
+                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(With Live Data)</th>
+                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(Without Live Data)</th>
+                        <th className='column-name'>Reorder_Quantity_Prediction<br />(With Live Data)</th>
+                        <th className='column-name'>Reorder_Quantity_Prediction<br />(Without live Data)</th>
                         <th className='column-name'>Historical_Monthly_Sales</th>
-                        <th className='column-name'>Predicted_monthly_sales<br />(without Live Data)</th>
-                        <th className='column-name'>Predicted_monthly_sales<br />(With Live Data)</th>
-                        <th className='column-name'>Predicted_daily_sales<br />(without Live Data)</th>
-                        <th className='column-name'>Predicted_daily_sales<br />(With Live Data)</th>
-                        <th className='column-name'>Predicted_Safety_Stock_For_15_Days<br />(without Live Data)</th>
-                        <th className='column-name'>Predicted_Safety_Stock_For_15_Days<br />(With Live Data)</th>
-                        <th className='column-name'>Predicted_Reorder_Point_Quantity<br />(without live Data)</th>
-                        <th className='column-name'>Predicted_Reorder_Point_Quantity<br />(With Live Data)</th>
+                        <th className='column-name'>Monthly_Sales_Prediction<br />(With Live Data)</th>
+                        <th className='column-name'>Monthly_Sales_Prediction<br />(Without Live Data)</th>
+                        <th className='column-name'>Daily_Sales_Prediction<br />(With Live Data)</th>
+                        <th className='column-name'>Daily_Sales_Prediction<br />(Without Live Data)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,15 +41,15 @@ const Table = (props) => {
                                     <td>PUID{eachRow.Product_ID}</td>
                                     <td>{eachRow.Product_Name}</td>
                                     <td>{eachRow.Lead_time_in_Days}</td>
-                                    <td>{eachRow.Avarage_Monthly_Sales}</td>
-                                    <td>{eachRow.Predicted_monthly_sales}</td>
-                                    <td>{eachRow.Predicted_monthly_sales_New}</td>
-                                    <td>{eachRow.Avarage_daily_sales}</td>
-                                    <td>{eachRow.Avarage_daily_sales_New}</td>
-                                    <td>{eachRow.Safety_Stock_For_15_Days}</td>
                                     <td>{eachRow.Safety_Stock_For_15_Days_New}</td>
-                                    <td>{eachRow.Reorder_Point_Quantity}</td>
+                                    <td>{eachRow.Safety_Stock_For_15_Days}</td>
                                     <td>{eachRow.Reorder_Point_Quantity_New}</td>
+                                    <td>{eachRow.Reorder_Point_Quantity}</td>
+                                    <td>{eachRow.Avarage_Monthly_Sales}</td>
+                                    <td>{eachRow.Predicted_monthly_sales_New}</td>
+                                    <td>{eachRow.Predicted_monthly_sales}</td>
+                                    <td>{eachRow.Avarage_daily_sales_New}</td>
+                                    <td>{eachRow.Avarage_daily_sales}</td>
                                 </tr>
                             )
                         })
@@ -60,11 +60,11 @@ const Table = (props) => {
                 <table className='table'>
                     <thead >
                         <tr>
-                            <th className='column-name'>S_no</th>
-                            <th className='column-name'>Product_Type</th>
-                            <th className='column-name'>SKU</th>
-                            <th className='column-name'>Predicted_Revenue_For_90_Days</th>
-                            <th className='column-name'>Week_Of_the_Revenue</th>
+                            <th className='column-name'>S.No</th>
+                            <th className='column-name'>Product_Category</th>
+                            <th className='column-name'>Item_SKU</th>
+                            <th className='column-name'>Projected_Revenue_for_Upcoming_90_Days</th>
+                            <th className='column-name'>Revenue_Reporting_Week</th>
                             {/* <th className='column-name'>Transportation_Mode</th> */}
 
                         </tr>
@@ -92,9 +92,9 @@ const Table = (props) => {
                     <thead >
                         <tr>
                             <th className='column-name'>S.No</th>
-                            <th className='column-name'>Equipment_Id</th>
-                            <th className='column-name'>Historical_Operational_Cycles</th>
-                            <th className='column-name'>Predicted_Cycle_Of_Equipment_Failure</th>
+                            <th className='column-name' title="Expresses, It's Life Cycle">Equipment_Serial_Number</th>
+                            <th className='column-name' title='Loss of ability to function efficiently'>Historical_Breakdown_of_Failures <br />(in Cycles)</th>
+                            <th className='column-name' title='Time during which, a machine need maintenance to work efficiently.'>Predicted_Equipment_Downtime <br /> (in Cycles)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,12 +119,12 @@ const Table = (props) => {
                     <thead >
                         <tr>
                             <th className='column-name'>S.No</th>
-                            <th className='column-name'>SKU_Of_Drug</th>
-                            <th className='column-name'>Drug_Name</th>
-                            <th className='column-name'>Predicted_Safety_Stock_For_15_days</th>
-                            <th className='column-name'>Predicted_Reorder_Point_Quantity</th>
-                            <th className='column-name'>Historical_Delivered_Quantity</th>
-                            <th className='column-name'>Predicted_Delivery_Quantity</th>
+                            <th className='column-name' title='Describes about Drug Composition etc.'>Medication_SKU</th>
+                            <th className='column-name' title='Medication is a drug or other form of medicine that is used to treat or prevent diseases'>Medication_Name</th>
+                            <th className='column-name'>15_Days_Buffer_Stock_Prediction</th>
+                            <th className='column-name'>Estimated_Reorder_Quantity</th>
+                            <th className='column-name'>Historical_Shipment_Volume</th>
+                            <th className='column-name'>Predicted_Volume_of_Shipment_for_Delivery</th>
                         </tr>
                     </thead>
                     <tbody>

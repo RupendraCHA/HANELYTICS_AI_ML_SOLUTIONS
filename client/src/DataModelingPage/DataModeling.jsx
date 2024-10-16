@@ -246,18 +246,17 @@ const DataModeling = () => {
                 <section className='workflows-section'>
                     <h1 className='use-case-heading' onClick={handleResultsData}>Data Models</h1>
                     <div className='data-model-types'>
-
                         <h2 className={inventoryData === true ? 'model-name' : "active"} onClick={getInventoryDataFromMongoDB}>
-                            Predicting Inventory Reorder Point & Safety Stock With Live Data
+                            Inventory Reorder Point & Safety Stock Prediction with Live-Data
                         </h2>
                         <h2 className={revenueData === true ? 'model-name' : "active"} onClick={getRevenueDataFromMongoDB}>
-                            Predicting Revenue/Demand Sensing
+                            Predictive Analytics for Revenue Demand Sensing Trends
                         </h2>
                         <h2 className={equipmentData1 === true ? 'model-name' : "active"} onClick={getEquipmentDataFromMongoDB}>
-                            Predicting Equipment Failure
+                            Equipment Risk Detection and Failure Prevention With Predictive Analytics
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Predicting Inventory Requirements With Clinical Data
+                            Predictive Inventory Modeling with Clinical Information
                         </h2>
 
                     </div>
@@ -283,7 +282,7 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Get Model Insights
+                                View Model Insights
                             </button>
                         </div>
 
@@ -301,7 +300,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
-                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>View Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -348,7 +347,7 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Get Model Insights
+                                View Model Insights
                             </button>
                         </div>
 
@@ -366,7 +365,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
-                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>View Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -414,7 +413,7 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Get Model Insights
+                                View Model Insights
                             </button>
                         </div>
 
@@ -432,7 +431,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
-                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>View Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
@@ -480,7 +479,7 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                Get Model Insights
+                                View Model Insights
                             </button>
                         </div>
 
@@ -498,7 +497,7 @@ const DataModeling = () => {
                                     <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                         Back
                                     </button>
-                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>Get Model Insights</button>
+                                    <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>View Model Insights</button>
                                 </div>
                             </>)}
                             {activeTab === 'tab2' && (
