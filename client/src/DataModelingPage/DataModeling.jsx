@@ -22,8 +22,6 @@ import {
     clinicalBarData
 } from './ChartsData/ChartData.jsx';
 
-
-
 const DataModeling = () => {
 
     let endpointsArray = ['getInventoryData', 'getRevenueData', 'getEquipmentData', 'getClinicalData']
@@ -69,7 +67,6 @@ const DataModeling = () => {
         setActiveTab(tab);
     };
 
-
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
@@ -81,7 +78,6 @@ const DataModeling = () => {
                 } else {
                     navigate("/dataModeling")
                 }
-
             })
             .catch(err => console.log(err))
     }, [])

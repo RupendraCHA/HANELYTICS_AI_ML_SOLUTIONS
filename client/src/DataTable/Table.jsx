@@ -63,7 +63,7 @@ const Table = (props) => {
                             <th className='column-name'>S.No</th>
                             <th className='column-name'>Product_Category</th>
                             <th className='column-name'>Item_SKU</th>
-                            <th className='column-name'>Projected_Revenue_for_Upcoming_90_Days</th>
+                            <th className='column-name'>Predicted_Revenue_for_Upcoming_90_Days</th>
                             <th className='column-name'>Revenue_Reporting_Week</th>
                             {/* <th className='column-name'>Transportation_Mode</th> */}
 
