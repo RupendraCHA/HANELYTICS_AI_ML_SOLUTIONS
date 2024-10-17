@@ -1,9 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import "./Table.css"
 // import { revenueData } from './JsonData1'
 
 const Table = (props) => {
 
+    // eslint-disable-next-line react/prop-types
     const { data, inventoryData, revenueData, equipmentData1, clinicalData } = props
 
     const convertToFixedDecimal = (number, roundedTo) => {
@@ -33,6 +34,7 @@ const Table = (props) => {
                 </thead>
                 <tbody>
                     {
+                        // eslint-disable-next-line react/prop-types
                         data.map((eachRow, index) => {
                             {/* console.log(index) */ }
                             return (
@@ -40,16 +42,16 @@ const Table = (props) => {
                                     <td>{index + 1}</td>
                                     <td>PUID{eachRow.Product_ID}</td>
                                     <td>{eachRow.Product_Name}</td>
-                                    <td>{eachRow.Lead_time_in_Days}</td>
-                                    <td>{eachRow.Safety_Stock_For_15_Days_New}</td>
-                                    <td>{eachRow.Safety_Stock_For_15_Days}</td>
-                                    <td>{eachRow.Reorder_Point_Quantity_New}</td>
-                                    <td>{eachRow.Reorder_Point_Quantity}</td>
-                                    <td>{eachRow.Avarage_Monthly_Sales}</td>
-                                    <td>{eachRow.Predicted_monthly_sales_New}</td>
-                                    <td>{eachRow.Predicted_monthly_sales}</td>
-                                    <td>{eachRow.Avarage_daily_sales_New}</td>
-                                    <td>{eachRow.Avarage_daily_sales}</td>
+                                    <td>{eachRow.Order_Fulfillment_Time_in_days}</td>
+                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_with_live_data}</td>
+                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_without_live_data}</td>
+                                    <td>{eachRow.Reorder_Quantity_Prediction_with_live_data}</td>
+                                    <td>{eachRow.Reorder_Quantity_Prediction_without_live_data}</td>
+                                    <td>{eachRow.Historical_Monthly_Sales}</td>
+                                    <td>{eachRow.Monthly_Sales_Prediction_without_live_data}</td>
+                                    <td>{eachRow.Monthly_Sales_Prediction_with_live_data}</td>
+                                    <td>{eachRow.Daily_Sales_Prediction_with_live_data}</td>
+                                    <td>{eachRow.Daily_Sales_Prediction_without_live_data}</td>
                                 </tr>
                             )
                         })
@@ -71,14 +73,15 @@ const Table = (props) => {
                     </thead>
                     <tbody>
                         {
+                            // eslint-disable-next-line react/prop-types
                             data.map((eachRow, index) => {
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>{eachRow.Product_Type}</td>
-                                        <td>UMI{eachRow.SKU}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Forecasted_Revenue_For_90_Days, 2)}</td>
-                                        <td>{eachRow.Week}</td>
+                                        <td>{eachRow.Product_Category}</td>
+                                        <td>UMI{eachRow.Item_SKU}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Revenue_for_Upcoming_90_Days, 2)}</td>
+                                        <td>{eachRow.Revenue_Reporting_Week}</td>
                                         {/* <td>{eachRow.Transportation_Modes}</td> */}
                                     </tr>
                                 )
@@ -99,14 +102,15 @@ const Table = (props) => {
                     </thead>
                     <tbody>
                         {
+                            // eslint-disable-next-line react/prop-types
                             data.map((eachRow, index) => {
                                 {/* console.log(index) */ }
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>EUID{eachRow.equipment_Id}</td>
-                                        <td>{eachRow.Historical_Operational_Cycles}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Failure_Cycles_Threshold, 2)}</td>
+                                        <td>EUID{eachRow.Equipment_Serial_Number}</td>
+                                        <td>{eachRow.Historical_Breakdown_of_Failures}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Downtime, 2)}</td>
                                     </tr>
                                 )
                             })
@@ -129,6 +133,7 @@ const Table = (props) => {
                     </thead>
                     <tbody>
                         {
+                            // eslint-disable-next-line react/prop-types
                             data.map((eachRow, index) => {
                                 {/* console.log(index) */ }
                                 return (

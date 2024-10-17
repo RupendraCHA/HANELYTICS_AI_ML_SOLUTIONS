@@ -43,14 +43,14 @@ const DataModeling = () => {
     const equipment_model_datasets = ['Sensor Data', 'Failure Data', 'Maintenance Data', 'Operational Data', 'Test Data of Equipment Failure']
     const clinical_model_datasets = [
         "Patient Health Profile Data",
-        "Distribution Centers Information",
+        // "Distribution Centers Information",
         "Admission Data Of Patient",
-        "Clinics Information Data",
+        // "Clinics Information Data",
         "Patient Discharge Summary Data",
-        "Clinical Inventory Data",
-        "Shipping History",
-        "Orders and Transactions Data",
-        "Product/Drug Information"
+        // "Clinical Inventory Data",
+        // "Shipping History",
+        "Sales Information Data"
+        // "Product/Drug Information"
     ]
 
     // const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
@@ -243,7 +243,7 @@ const DataModeling = () => {
                     <h1 className='use-case-heading' onClick={handleResultsData}>Data Models</h1>
                     <div className='data-model-types'>
                         <h2 className={inventoryData === true ? 'model-name' : "active"} onClick={getInventoryDataFromMongoDB}>
-                            Inventory Reorder Point & Safety Stock Prediction with Live-Data
+                            Reorder Point Quantity & Safety Stock Predictions for Inventory with & without Live-Data
                         </h2>
                         <h2 className={revenueData === true ? 'model-name' : "active"} onClick={getRevenueDataFromMongoDB}>
                             Predictive Analytics for Revenue Demand Sensing Trends
