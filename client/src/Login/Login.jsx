@@ -10,7 +10,7 @@ function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [failed, setFailed] = useState('')
+    // const [failed, setFailed] = useState('')
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -55,7 +55,7 @@ function Login() {
         <>
             <Navbar />
             <div className='bg-container-login d-flex justify-content-center align-items-center bg-secondary vh-100'>
-                <div className='bg-success p-4 text-white rounded-4 login-card' style={{ opacity: "0.9" }}>
+                <div className='bg-secondary p-4 text-white rounded-4 login-card' style={{ opacity: "0.9" }}>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
@@ -90,7 +90,7 @@ function Login() {
                             Login
                         </button>
                     </form>
-                    <p>{failed}</p>
+                    {/* <p>{failed}</p> */}
                     <p>Don't have an account?</p>
                     <Link to="/register" className='btn btn-default border w-100 bg-warning rounded-0 text-decoration-none' style={{ fontWeight: "600" }}>
                         Register

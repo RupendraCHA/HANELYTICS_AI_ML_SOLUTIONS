@@ -93,9 +93,10 @@
   cursor: pointer;
 }
 .home {
-  background-color: black;
-  color: #fff;
+  background-color: yellow;
+  color: #000;
   border: 2px solid #fff;
+  font-weight: bold;
 }
 .signup {
   background-color: red;
@@ -106,4 +107,18 @@
   text-decoration: none;
   background-color: green;
   border: 2px solid #fff;
+}
+.logout {
+  background-color: black;
+  color: #fff;
+  border: 1px solid red;
+}
+.select{
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 0px 5px;
+  outline: none;
 }

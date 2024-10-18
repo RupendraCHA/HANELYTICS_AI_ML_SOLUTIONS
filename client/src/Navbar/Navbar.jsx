@@ -7,9 +7,23 @@ import { GrInstagram } from "react-icons/gr";
 import { FaGlobe } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Navbar.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        axios.get("http://localhost:3001/logout")
+            .then(result => {
+                if (result.data === "Logout Successful!") {
+                    toast.success(result.data)
+                    navigate("/login")
+                }
+            })
+    }
 
     return (
         <div className='navbar-container'>
@@ -50,14 +64,22 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='signup-register'>
-                    <Link to="/">
+                    <Link to="/" style={{fontWeight: "bold"}}>
                         <button className='home'>Home</button>
                     </Link>
-                    <Link to="/register">
+                    {/* <Link to="/register">
                         <button className='signup'>Sign up</button>
                     </Link>
                     <Link to="/login">
                         <button id='login'>Login</button>
+                    </Link> */}
+                    <Link to="/login">
+                        <button className='logout'
+                            style={{ fontWeight: "700", backgroundColor: "white", color: "red"}}
+                            onClick={handleLogout}
+                        >
+                            Logout
+                        </button>
                     </Link>
                 </div>
             </div>

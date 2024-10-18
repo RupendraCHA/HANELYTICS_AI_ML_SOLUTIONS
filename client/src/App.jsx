@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import SignUp from './SignIn/signUp'
 import Login from './Login/Login'
-import Home from './Home'
+import Home from './Home/Home.jsx'
 import InitialPage from './InitialPage/InitialPage'
 import DataModels from './dataModels/dataModels.jsx'
 import DataModeling from './DataModelingPage/DataModeling.jsx'
@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
-
   return (
     <BrowserRouter>
       <storeContextProvider>

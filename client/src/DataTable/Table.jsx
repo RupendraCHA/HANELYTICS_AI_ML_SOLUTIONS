@@ -3,7 +3,6 @@ import "./Table.css"
 // import { revenueData } from './JsonData1'
 
 const Table = (props) => {
-
     // eslint-disable-next-line react/prop-types
     const { data, inventoryData, revenueData, equipmentData1, clinicalData } = props
 
@@ -11,7 +10,6 @@ const Table = (props) => {
         let number1 = number.toFixed(roundedTo)
         return number1
     }
-
     return (
         <>
             {!inventoryData && (<table className='table'>
@@ -97,7 +95,7 @@ const Table = (props) => {
                             <th className='column-name'>S.No</th>
                             <th className='column-name' title="Expresses, It's Life Cycle">Equipment_Serial_Number</th>
                             <th className='column-name' title='Loss of ability to function efficiently'>Historical_Breakdown_of_Failures <br />(in Cycles)</th>
-                            <th className='column-name' title='Time during which, a machine need maintenance to work efficiently.'>Predicted_Equipment_Downtime <br /> (in Cycles)</th>
+                            <th className='column-name' title='Time during which, a machine need maintenance to work efficiently.'>Predicted_Equipment_Breakdown_of_Failure <br /> (in Cycles)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,7 +107,7 @@ const Table = (props) => {
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>EUID{eachRow.Equipment_Serial_Number}</td>
-                                        <td>{eachRow.Historical_Breakdown_of_Failures}</td>
+                                        <td>{eachRow.Historical_Breakdown_of_Equipment_Failure}</td>
                                         <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Downtime, 2)}</td>
                                     </tr>
                                 )
@@ -139,12 +137,12 @@ const Table = (props) => {
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>UMI00{eachRow.SKU_Of_DRUG}</td>
-                                        <td>{eachRow.Drug_Name}</td>
-                                        <td>{eachRow.Safety_Stock_For_15_days}</td>
-                                        <td>{eachRow.Reorder_Point_Quantity}</td>
-                                        <td>{eachRow.Quantity_Of_Drug_Consumption_By_Firms}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Quantity_Of_Demand, 2)}</td>
+                                        <td>UMI00{eachRow.Medication_SKU}</td>
+                                        <td>{eachRow.Medication_Name}</td>
+                                        <td>{eachRow.fifteen_Days_Buffer_Stock_Prediction}</td>
+                                        <td>{eachRow.Estimated_Reorder_Quantity}</td>
+                                        <td>{eachRow.Historical_Shipment_Volume}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Volume_of_Shipment_for_Delivery, 2)}</td>
                                     </tr>
                                 )
                             })

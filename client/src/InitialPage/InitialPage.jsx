@@ -4,11 +4,8 @@ import "./initialPage.css"
 import axios from 'axios'
 
 function InitialPage() {
-
     const navigate = useNavigate()
-
     axios.defaults.withCredentials = true;
-
     useEffect(() => {
         axios.get('http://localhost:3001/home')
             .then(result => {
@@ -18,13 +15,13 @@ function InitialPage() {
                 } else {
                     navigate("/home")
                 }
-
             })
             .catch(err => console.log(err))
     }, [])
 
     return (
         <>
+        <div className='bg-image-container'>
             <div className='bg-container-initial'>
                 <div className='container responsive-container'>
                     <div>
@@ -38,13 +35,14 @@ function InitialPage() {
                         </div>
                         <div>
                             <Link to="/login" className='bg-success rounded-4 p-2 text-white' style={{ fontWeight: 500, textDecoration: "none" }}>
-                                Login</Link>
+                                Login
+                            </Link>
                         </div>
                         {/* <h1>Data Modeling</h1> */}
                     </div>
                 </div>
-                <div className='d-flex flex-column justify-content-center align-items-center' style={{ paddingTop: "150px" }}>
-                    <h1 className='text-center text-white' style={{ fontSize: "34px", marginBottom: "50px" }}>"Artificial
+                <div className='d-flex flex-column justify-content-center align-items-center'>
+                    <h1 className='text-center'>"Artificial
                         Intelligence" & "Machine Learning" Solutions in Supply Chain Injecting Data
                         From Diverse ERP & Non-ERP Sources.</h1>
                     <div className='text-center'>
@@ -65,6 +63,7 @@ function InitialPage() {
                     </div>
                 </div>
             </div>
+        </div> 
         </>
 
     )
