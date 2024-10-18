@@ -360,7 +360,7 @@ ul {
   margin-top: 2px;
   border-radius: 8px;
   font-size: 38px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 /* Tab content styling */
@@ -409,4 +409,9 @@ ul {
 .info-bar {
   background-color: #000;
   color: #fff;
+}
+.tab-buttons span{
+  font-size: 16px;
+  /* margin-left: 5px; */
+  
 }

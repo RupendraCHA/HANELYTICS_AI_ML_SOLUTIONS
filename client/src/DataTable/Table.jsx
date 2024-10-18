@@ -78,8 +78,8 @@ const Table = (props) => {
                                         <td>{index + 1}</td>
                                         <td>{eachRow.Product_Category}</td>
                                         <td>UMI{eachRow.Item_SKU}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Revenue_for_Upcoming_90_Days, 2)}</td>
-                                        <td>{eachRow.Revenue_Reporting_Week}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Forecasted_Revenue_For_90_Days, 2)}</td>
+                                        <td>{eachRow.Day_Of_The_Week}</td>
                                         {/* <td>{eachRow.Transportation_Modes}</td> */}
                                     </tr>
                                 )
@@ -107,7 +107,7 @@ const Table = (props) => {
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>EUID{eachRow.Equipment_Serial_Number}</td>
-                                        <td>{eachRow.Historical_Breakdown_of_Equipment_Failure}</td>
+                                        <td>{eachRow.Historical_Breakdown_of_Failures}</td>
                                         <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Downtime, 2)}</td>
                                     </tr>
                                 )
@@ -139,7 +139,7 @@ const Table = (props) => {
                                         <td>{index + 1}</td>
                                         <td>UMI00{eachRow.Medication_SKU}</td>
                                         <td>{eachRow.Medication_Name}</td>
-                                        <td>{eachRow.fifteen_Days_Buffer_Stock_Prediction}</td>
+                                        <td>{eachRow.Buffer_Stock_Prediction_for_15_days}</td>
                                         <td>{eachRow.Estimated_Reorder_Quantity}</td>
                                         <td>{eachRow.Historical_Shipment_Volume}</td>
                                         <td>{convertToFixedDecimal(eachRow.Predicted_Volume_of_Shipment_for_Delivery, 2)}</td>
