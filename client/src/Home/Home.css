@@ -29,13 +29,18 @@
     .button{
         text-decoration: none;
         color: #fff;
-        background-color: blue;
+        background-color: black;
         border-radius: 15px;
         border: none;
         padding: 12px;
         margin: 12px;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 20px;
+        border: 2px solid white;
+    }
+    b{
+        color: white;
+        font-size: 11px;
     }
 }
 .hanelytics-offerings{

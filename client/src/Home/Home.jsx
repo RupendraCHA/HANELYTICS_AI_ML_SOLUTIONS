@@ -63,6 +63,7 @@ function Home() {
                             Start Working With Data Models
                         </button>
                     </Link>
+                    <b>*Click here to start working with Data Models</b>
                     {/* <Link to="/login">
                         <button className='text-decoration-none text-danger bg-warning rounded-4 border-none p-3'
                             style={{ fontWeight: 700}}
