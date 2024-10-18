@@ -19,15 +19,15 @@ const Table = (props) => {
                         <th className='column-name'>Product_Identifier</th>
                         <th className='column-name'>Product_Name</th>
                         <th title="Time required to transport the product" className='column-name'>Order_Fulfillment_Time (in Days)</th>
-                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(With Live Data)</th>
-                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(Without Live Data)</th>
-                        <th className='column-name'>Reorder_Quantity_Prediction<br />(With Live Data)</th>
-                        <th className='column-name'>Reorder_Quantity_Prediction<br />(Without live Data)</th>
                         <th className='column-name'>Historical_Monthly_Sales</th>
-                        <th className='column-name'>Monthly_Sales_Prediction<br />(With Live Data)</th>
                         <th className='column-name'>Monthly_Sales_Prediction<br />(Without Live Data)</th>
-                        <th className='column-name'>Daily_Sales_Prediction<br />(With Live Data)</th>
+                        <th className='column-name'>Monthly_Sales_Prediction<br />(With Live Data)</th>
                         <th className='column-name'>Daily_Sales_Prediction<br />(Without Live Data)</th>
+                        <th className='column-name'>Daily_Sales_Prediction<br />(With Live Data)</th>
+                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(Without Live Data)</th>
+                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(With Live Data)</th>
+                        <th className='column-name'>Reorder_Quantity_Prediction<br />(Without live Data)</th>
+                        <th className='column-name'>Reorder_Quantity_Prediction<br />(With Live Data)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,15 +41,15 @@ const Table = (props) => {
                                     <td>PUID{eachRow.Product_ID}</td>
                                     <td>{eachRow.Product_Name}</td>
                                     <td>{eachRow.Order_Fulfillment_Time_in_days}</td>
-                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_with_live_data}</td>
-                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_without_live_data}</td>
-                                    <td>{eachRow.Reorder_Quantity_Prediction_with_live_data}</td>
-                                    <td>{eachRow.Reorder_Quantity_Prediction_without_live_data}</td>
                                     <td>{eachRow.Historical_Monthly_Sales}</td>
                                     <td>{eachRow.Monthly_Sales_Prediction_without_live_data}</td>
                                     <td>{eachRow.Monthly_Sales_Prediction_with_live_data}</td>
-                                    <td>{eachRow.Daily_Sales_Prediction_with_live_data}</td>
                                     <td>{eachRow.Daily_Sales_Prediction_without_live_data}</td>
+                                    <td>{eachRow.Daily_Sales_Prediction_with_live_data}</td>
+                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_without_live_data}</td>
+                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_with_live_data}</td>
+                                    <td>{eachRow.Reorder_Quantity_Prediction_without_live_data}</td>
+                                    <td>{eachRow.Reorder_Quantity_Prediction_with_live_data}</td>
                                 </tr>
                             )
                         })
@@ -76,10 +76,10 @@ const Table = (props) => {
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>{eachRow.Product_Category}</td>
+                                        <td>{eachRow.Product_Type}</td>
                                         <td>UMI{eachRow.Item_SKU}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Forecasted_Revenue_For_90_Days, 2)}</td>
-                                        <td>{eachRow.Day_Of_The_Week}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Revenue_for_Upcoming_90_Days, 2)}</td>
+                                        <td>{eachRow.Revenue_Reporting_Week}</td>
                                         {/* <td>{eachRow.Transportation_Modes}</td> */}
                                     </tr>
                                 )
@@ -94,7 +94,7 @@ const Table = (props) => {
                         <tr>
                             <th className='column-name'>S.No</th>
                             <th className='column-name' title="Expresses, It's Life Cycle">Equipment_Serial_Number</th>
-                            <th className='column-name' title='Loss of ability to function efficiently'>Historical_Breakdown_of_Failures <br />(in Cycles)</th>
+                            <th className='column-name' title='Loss of ability to function efficiently'>Historical_Breakdown_of_Equipment_Failure <br />(in Cycles)</th>
                             <th className='column-name' title='Time during which, a machine need maintenance to work efficiently.'>Predicted_Equipment_Breakdown_of_Failure <br /> (in Cycles)</th>
                         </tr>
                     </thead>
@@ -107,8 +107,8 @@ const Table = (props) => {
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>EUID{eachRow.Equipment_Serial_Number}</td>
-                                        <td>{eachRow.Historical_Breakdown_of_Failures}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Downtime, 2)}</td>
+                                        <td>{eachRow.Historical_Breakdown_of_Equipment_Failure}</td>
+                                        <td>{convertToFixedDecimal(eachRow.Predicted_Equipment_Breakdown_of_Failure, 2)}</td>
                                     </tr>
                                 )
                             })
