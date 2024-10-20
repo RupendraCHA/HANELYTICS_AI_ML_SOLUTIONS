@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import "./DataModeling.css"
 import { FaRegCircleUser } from "react-icons/fa6";
 import DatasetItem from "./../DatasetsItem/DatasetsItem.jsx"
@@ -21,8 +21,11 @@ import {
     equipmentBarData,
     clinicalBarData
 } from './ChartsData/ChartData.jsx';
+import { StoreContext } from '../context/StoreContext.jsx';
 
 const DataModeling = () => {
+
+    const {message} = useContext(StoreContext)
 
     let endpointsArray = ['getInventoryData', 'getRevenueData', 'getEquipmentData', 'getClinicalData']
 

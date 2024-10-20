@@ -43,7 +43,7 @@ function InitialPage() {
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center'>
                     <h1 className='text-center'>"Artificial
-                        Intelligence" & "Machine Learning" Solutions in Supply Chain Injecting Data
+                        Intelligence" & "Machine Learning" Solutions in Supply Chain, Injecting Data
                         From Diverse ERP & Non-ERP Sources.</h1>
                     <div className='text-center'>
                         <h3 className='text-white'>Don't have an account, Create it by clicking register...</h3>

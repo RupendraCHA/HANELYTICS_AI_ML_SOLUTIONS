@@ -15,9 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
-  return (
-    <BrowserRouter>
-      <storeContextProvider>
+  return (<>
         <ToastContainer />
         <Routes>
           <Route exact path='/' element={<InitialPage />}></Route>
@@ -28,8 +26,7 @@ function App() {
           <Route exact path='/dataModeling' element={<DataModeling />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
-      </storeContextProvider>
-    </BrowserRouter>
+      </>
   )
 }
 

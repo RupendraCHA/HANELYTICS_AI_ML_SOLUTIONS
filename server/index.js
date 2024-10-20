@@ -158,6 +158,10 @@ app.post('/register', (req, res) => {
 
 })
 
+app.get("/", (req, res) => {
+    res.send("API is Working");
+})
+
 const port = 3001;
 
 const connectToMongoDB = async () => {
