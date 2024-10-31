@@ -45,15 +45,14 @@ const DataModeling = () => {
 
     const equipment_model_datasets = ['Sensor Data', 'Failure Data', 'Maintenance Data', 'Operational Data', 'Test Data of Equipment Failure']
     const clinical_model_datasets = [
-        "Patient Health Profile Data",
-        // "Distribution Centers Information",
-        "Admission Data Of Patient",
-        // "Clinics Information Data",
-        "Patient Discharge Summary Data",
-        // "Clinical Inventory Data",
-        // "Shipping History",
-        "Sales Information Data"
-        // "Product/Drug Information"
+        "Medication Names and Details",
+        "Orders and Transactions Data",
+        "Shipping History Data",
+        "Distribution Center Details",
+        "Distribution Center Inventory Levels Data",
+        "Historical Patient Data",
+        "Regulatory and Compliance Data",
+        "Lead Times Data"
     ]
 
     // const datasetsNames = ["Order History", "Product Information", "Warehouse Information", "Past Demand", "Stock Movement", "Weather Data"]
