@@ -103,7 +103,7 @@ app.get("/getClinicalData", async (req, res) => {
     try {
         await client.connect()
 
-        const database = client.db("clinical_data")
+        const database = client.db("database_of_clinical_details")
         const collection = database.collection("predicted_clinical_data")
 
         const allDocuments = await collection.find().toArray()

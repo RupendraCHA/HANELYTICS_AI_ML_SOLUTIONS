@@ -121,12 +121,14 @@ const Table = (props) => {
                     <thead >
                         <tr>
                             <th className='column-name'>S.No</th>
-                            <th className='column-name' title='Describes about Drug Composition etc.'>Medication_SKU</th>
-                            <th className='column-name' title='Medication is a drug or other form of medicine that is used to treat or prevent diseases'>Medication_Name</th>
-                            <th className='column-name'>15_Days_Buffer_Stock_Prediction</th>
-                            <th className='column-name'>Estimated_Reorder_Quantity</th>
-                            <th className='column-name'>Historical_Shipment_Volume</th>
-                            <th className='column-name'>Predicted_Volume_of_Shipment_for_Delivery</th>
+                            <th className='column-name'>Distribution_Center_ID</th>
+                            <th className='column-name'>Distribution_Center_Name</th>
+                            <th className='column-name'>Medication_ID</th>
+                            <th className='column-name'>Medication_Name</th>
+                            <th className='column-name'>Predicted_Sales</th>
+                            <th className='column-name'>Historical_Sales</th>
+                            <th className='column-name'>Safety_Stock_For_15_Days</th>
+                            <th className='column-name'>Reorder_Point_Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,12 +139,14 @@ const Table = (props) => {
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>UMI00{eachRow.Medication_SKU}</td>
+                                        <td>{eachRow.Distribution_Center_ID}</td>
+                                        <td>{eachRow.Distribution_Center_Name}</td>
+                                        <td>{eachRow.Medication_ID}</td>
                                         <td>{eachRow.Medication_Name}</td>
-                                        <td>{eachRow.Buffer_Stock_Prediction_for_15_days}</td>
-                                        <td>{eachRow.Estimated_Reorder_Quantity}</td>
-                                        <td>{eachRow.Historical_Shipment_Volume}</td>
-                                        <td>{convertToFixedDecimal(eachRow.Predicted_Volume_of_Shipment_for_Delivery, 2)}</td>
+                                        <td>{eachRow.Predicted_Sales}</td>
+                                        <td>{eachRow.Historical_Sales}</td>
+                                        <td>{eachRow.Safety_Stock_For_15_Days}</td>
+                                        <td>{eachRow.Reorder_Point_Quantity}</td>
                                     </tr>
                                 )
                             })
