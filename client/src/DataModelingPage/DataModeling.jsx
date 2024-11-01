@@ -254,7 +254,7 @@ const DataModeling = () => {
                             Equipment Risk Detection and Failure Prevention With Predictive Analytics
                         </h2>
                         <h2 className={clinicalData === true ? 'model-name' : "active"} onClick={getClinicalDataFromMongoDB}>
-                            Predictive Inventory Modeling with Clinical Information
+                            Prediction of Reorder Point & Buffer Stock with Clinical Information
                         </h2>
 
                     </div>
