@@ -24,8 +24,8 @@ const Table = (props) => {
                         <th className='column-name'>Monthly_Sales_Prediction<br />(With Live Data)</th>
                         <th className='column-name'>Daily_Sales_Prediction<br />(Without Live Data)</th>
                         <th className='column-name'>Daily_Sales_Prediction<br />(With Live Data)</th>
-                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(Without Live Data)</th>
-                        <th className='column-name'>15_Days_Buffer_Stock_Estimates<br />(With Live Data)</th>
+                        <th className='column-name'>Safety_Stock<br />(Without Live Data)</th>
+                        <th className='column-name'>Safety_Stock<br />(With Live Data)</th>
                         <th className='column-name'>Reorder_Quantity_Prediction<br />(Without live Data)</th>
                         <th className='column-name'>Reorder_Quantity_Prediction<br />(With Live Data)</th>
                     </tr>
@@ -127,7 +127,7 @@ const Table = (props) => {
                             <th className='column-name'>Medication_Name</th>
                             <th className='column-name'>Predicted_Sales</th>
                             <th className='column-name'>Historical_Sales</th>
-                            <th className='column-name'>Safety_Stock_For_15_Days</th>
+                            <th className='column-name'>Safety_Stock</th>
                             <th className='column-name'>Reorder_Point_Quantity</th>
                         </tr>
                     </thead>

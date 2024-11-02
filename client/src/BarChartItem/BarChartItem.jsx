@@ -33,7 +33,7 @@ const BarChartItem = ({ chartData, barChartText }) => {
             title: {
                 display: true,
                 text: `${barChartText}`,
-                color: "white"
+                color: "blue"
             }
         }
     }

@@ -22,6 +22,7 @@ import {
     clinicalBarData
 } from './ChartsData/ChartData.jsx';
 import { StoreContext } from '../context/StoreContext.jsx';
+import InventoryPieChart from '../InventoryPieChart/InventoryPieChart.jsx';
 
 const DataModeling = () => {
 
@@ -64,9 +65,14 @@ const DataModeling = () => {
     const [clinicalData, setClinicalData] = useState(true)
     const navigate = useNavigate()
     const [activeTab, setActiveTab] = useState('tab1');
+    const [activeChartTab, setActiveChartTab] = useState('');
+    const [showPieChart, setShowPieChart] = useState(false);
+    const [showResults, setShowResults] = useState(true)
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
+        setShowPieChart(false)
+        setShowResults(true)
     };
 
     axios.defaults.withCredentials = true;
@@ -168,6 +174,12 @@ const DataModeling = () => {
         setClinicalData(true)
     }
 
+    const handlePieChart = (tab) => {
+        setActiveTab(tab)
+        setShowPieChart(true)
+        setShowResults(false)
+    }
+
     const items = [
         {
             key: 1,
@@ -267,7 +279,6 @@ const DataModeling = () => {
                     )
                 }
                 {!inventoryData && (
-
                     <div className='charts-section'>
                         <div className="tab-buttons">
                             <button
@@ -280,10 +291,9 @@ const DataModeling = () => {
                                 className={`tab ${activeTab === 'tab2' ? 'activeTab' : ''}`}
                                 onClick={() => handleTabClick('tab2')}
                             >
-                                View Model Insights
+                                View Model Results
                             </button>
                         </div>
-
 
                         <div className="tab-content">
                             {activeTab === 'tab1' && (<>
@@ -303,22 +313,35 @@ const DataModeling = () => {
                             </>)}
                             {activeTab === 'tab2' && (
                                 <div id="tab2" className="content">
-                                    <div className='charts-container'>
+                                    <div className='charts-buttons'>
+                                        <button className={`chart-tab ${activeTab === 'tab3' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab3')}>
+                                            Pie Chart
+                                        </button>
+                                        <button className={`chart-tab ${activeTab === 'tab4' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab4')}>
+                                            Bar Chart
+                                        </button>
+                                    </div>
+                                    {showPieChart && <div className='charts-container'>
+                                        {/* <div className='pie-chart'>
+                                            <PieChart data={data} chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
+                                        </div> */}
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
+                                            <InventoryPieChart data={data} chartText={"Product with Lead Times"} pieChartData={inventoryPieData} />
                                         </div>
-                                        <div className='bar-chart'>
+                                        {/* <div className='bar-chart'>
                                             <BarChart
-                                                barChartText={"Forecasted results for Sales, Safety Stock & Reorder Quantity"}
+                                                data={data}
+                                                barChartText={"Predicted results for Sales, Safety Stock & Reorder Quantity"}
                                                 barChartData={inventoryBarData}
                                                 labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
                                             />
-                                        </div>
-                                    </div>
-                                    <h1 className='results-heading'>Results:</h1>
+                                        </div> */}
+                                    </div>}
+                                    {showResults && 
+                                        <><h1 className='results-heading'>Results:</h1>
                                     <div className='table-container'>
                                         <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
-                                    </div>
+                                    </div></>}
                                     <div className="button">
                                         <button className='text-right btn btn-primary' onClick={handleResultsData}>
                                             Back
@@ -327,7 +350,84 @@ const DataModeling = () => {
                                     </div>
                                 </div>
                             )}
-
+                            {activeTab === 'tab3' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-buttons'>
+                                        <button className={`chart-tab ${activeTab === 'tab3' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab3')}>
+                                            Pie Chart
+                                        </button>
+                                        <button className={`chart-tab ${activeTab === 'tab4' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab4')}>
+                                            Bar Chart
+                                        </button>
+                                    </div>
+                                    {showPieChart && <div className='charts-container'>
+                                        {/* <div className='pie-chart'>
+                                            <PieChart data={data} chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
+                                        </div> */}
+                                        <div className='pie-chart'>
+                                            <InventoryPieChart data={data} chartText={"Product with Lead Times"} pieChartData={inventoryPieData} />
+                                        </div>
+                                        {/* <div className='bar-chart'>
+                                            <BarChart
+                                                data={data}
+                                                barChartText={"Predicted results for Sales, Safety Stock & Reorder Quantity"}
+                                                barChartData={inventoryBarData}
+                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
+                                            />
+                                        </div> */}
+                                    </div>}
+                                    {/* {showResults && 
+                                        <><h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
+                                    </div></>} */}
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources <span>(utilized)</span></button>
+                                    </div>
+                                </div>
+                            )}
+                            {activeTab === 'tab4' && (
+                                <div id="tab2" className="content">
+                                    <div className='charts-buttons'>
+                                        <button className={`chart-tab ${activeTab === 'tab3' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab3')}>
+                                            Pie Chart
+                                        </button>
+                                        <button className={`chart-tab ${activeTab === 'tab4' ? 'chart-tab-active' : ''}`} onClick={() => handlePieChart('tab4')}>
+                                            Bar Chart
+                                        </button>
+                                    </div>
+                                    {showPieChart && <div className='charts-container'>
+                                        {/* <div className='pie-chart'>
+                                            <PieChart data={data} chartText={"Average and Predicted Monthly Sales Data"} pieChartData={inventoryPieData} />
+                                        </div> */}
+                                        {/* <div className='pie-chart'>
+                                            <InventoryPieChart data={data} chartText={"Product with Lead Times"} pieChartData={inventoryPieData} />
+                                        </div> */}
+                                        <div className='bar-chart'>
+                                            <BarChart
+                                                data={data}
+                                                barChartText={"Predicted results for Sales, Safety Stock & Reorder Quantity"}
+                                                barChartData={inventoryBarData}
+                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
+                                            />
+                                        </div>
+                                    </div>}
+                                    {/* {showResults && 
+                                        <><h1 className='results-heading'>Results:</h1>
+                                    <div className='table-container'>
+                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
+                                    </div></>} */}
+                                    <div className="button">
+                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
+                                            Back
+                                        </button>
+                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources <span>(utilized)</span></button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
@@ -370,10 +470,11 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} />
+                                            <PieChart data={data} chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart
+                                                data={data}
                                                 barChartText={"Generation Of Revenue in Future"}
                                                 barChartData={revenueBarData}
                                                 labelsData={["Sales", "Inventory Levels", "Quantity for each Order"]}
@@ -436,10 +537,11 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
+                                            <PieChart data={data} chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart
+                                                data={data}
                                                 barChartText={"Equipment Failure representation in cycles"}
                                                 barChartData={equipmentBarData}
                                                 labelsData={["Quantity of Demand", "Historical Cycles", "Predicted Failure Cycles"]}
@@ -502,10 +604,11 @@ const DataModeling = () => {
                                 <div id="tab2" className="content">
                                     <div className='charts-container'>
                                         <div className='pie-chart'>
-                                            <PieChart chartText={"Predicted Consumption Quantity of Drugs"} pieChartData={clinicalPieData} />
+                                            <PieChart data={data} chartText={"Predicted Consumption Quantity of Drugs"} pieChartData={clinicalPieData} />
                                         </div>
                                         <div className='bar-chart'>
                                             <BarChart
+                                                data={data}
                                                 barChartText={"Clinical Data Visual Representation"}
                                                 barChartData={clinicalBarData}
                                                 labelsData={["Safety Stock Required", "Drugs Consumed", "Reorder Point Quantity"]}

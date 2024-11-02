@@ -262,11 +262,21 @@ ul {
   min-height: 100vh;
   border: 2px solid #020230;
 }
+.charts-buttons{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  width: 50%;
+  gap: 40px;
+}
 .charts-container {
   display: flex;
-  height: 45vh;
+  height: 50vh;
   width: 100%;
   overflow-x: scroll;
+  margin-bottom: 30px;
 }
 @media screen and (max-width: 768px) {
   .charts-container {
@@ -282,7 +292,8 @@ ul {
   margin-top: 10px;
   margin-left: 20px;
   border-radius: 8px;
-  background-color: #0e0b0d;
+  background-color: white;
+  /* overflow: scroll; */
 }
 .bar-chart {
   flex: 1;
@@ -290,7 +301,7 @@ ul {
   margin-top: 10px;
   margin-left: 10px;
   border-radius: 8px;
-  background-color: #232525;
+  background-color: white;
 }
 .results-heading {
   margin-left: 20px;
@@ -304,7 +315,7 @@ ul {
   margin: 0 20px 20px 20px;
   width: 98%;
   overflow: auto;
-  height: 40vh;
+  height: 70vh;
   border: 2px solid #000;
   background-color: #2c829a;
   padding: 5px;
@@ -330,14 +341,31 @@ ul {
   /* margin-bottom: 20px !important; */
   display: flex !important;
 }
+.chart-tab{
+  color: #000;
+  background-color: grey;
+  font-size: 20px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  /* font-weight: 500; */
+  border: 1px solid #000;
+}
+.chart-tab-active{
+  background-color: black;
+  color: #fff;
+  font-weight: 700;
 
+}
 .tab {
   display: inline-block !important;
   padding: 10px 10px !important; /* Consistent padding */
   margin-right: 5px !important;
   margin-left: 20px;
-  background-color: rgb(140, 158, 167) !important;
-  border: 3px solid #947575 !important;
+  background-color: grey !important;
+  border: 1px solid #000 !important;
   margin-top: 2px;
   color: #000;
   font-size: 28px;
@@ -346,6 +374,7 @@ ul {
   cursor: pointer !important;
   outline: none !important;
   flex: 1 !important;
+  /* font-weight: bold; */
   box-sizing: border-box !important; /* Includes padding and border in the height */
   transition: background-color 0.3s !important; /* Smooth transition for background color */
 }
@@ -353,14 +382,15 @@ ul {
 .tab.activeTab {
   background-color: #000 !important;
   font-weight: bold !important;
-  border: 5px solid green !important;
+  border: 1px solid #fff !important;
   /*Keeps the height uniform */
   position: relative !important;
   color: #fff;
   font-weight: bold;
   margin-top: 2px;
-  border-radius: 8px;
-  font-size: 38px;
+  /* border-radius: 8px; */
+  background-color: #000 !important;
+  /* font-size: 38px; */
   /* text-decoration: underline; */
 }
 

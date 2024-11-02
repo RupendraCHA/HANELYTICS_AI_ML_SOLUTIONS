@@ -9,7 +9,7 @@ ChartJS.register(
     ArcElement
 )
 
-const PieChartItem = ({ chartData, chartText }) => {
+const InventoryPieChartItem = ({ chartData, chartText }) => {
 
     const options = {
         responsive: true,
@@ -32,4 +32,4 @@ const PieChartItem = ({ chartData, chartText }) => {
     )
 }
 
-export default PieChartItem
+export default InventoryPieChartItem
