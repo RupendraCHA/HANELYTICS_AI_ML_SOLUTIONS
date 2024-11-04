@@ -37,23 +37,22 @@ function InventoryBarChart({ barChartText, barChartData, labelsData, data }) {
     const [userData2, setUserData2] = useState({
         labels: data.map((data) => data.Product_Name),
         datasets: [{
-            label: "Historical Monthly Sales",
+            label: "Safety Stock Prediction Without Live Data",
             data: data.map((data) => data.Safetry_Stock_Prediction_Without_Live_Data),
             backgroundColor: ["#0072B2"],
         }, {
-            label: "Monthly Sales Prediction Without Live Data",
+            label: "Safety Stock Prediction With Live Data",
             data: data.map((data) => data.Safetry_Stock_Prediction_With_Live_Data),
             backgroundColor: ["#801650"]
         }, {
-            label: "Monthly Sales Prediction With Live Data",
+            label: "Reorder Quantity Prediction Without Live Data",
             data: data.map((data) => data.Reorder_Quantity_Prediction_without_live_data),
             backgroundColor: ["#F46A25"]
         }, {
-            label: "Monthly Sales Prediction With Live Data",
+            label: "Reorder Quantity Prediction With Live Data",
             data: data.map((data) => data.Reorder_Quantity_Prediction_with_live_data),
             backgroundColor: ["#3D3D3D"]
         }
-        
         ]
     })
 
