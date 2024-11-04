@@ -57,14 +57,34 @@ function InventoryBarChart({ barChartText, barChartData, labelsData, data }) {
         ]
     })
 
+    const [userData3, setUserData3] = useState({
+        labels: data.map((data) => data.Product_Name),
+        datasets: [{
+            label: "Daily Sales Without Live Data",
+            data: data.map((data) => data.Daily_Sales_Prediction_without_live_data),
+            backgroundColor: ["#A285D1"],
+        }, {
+            label: "Daily Sales With Live Data",
+            data: data.map((data) => data.Daily_Sales_Prediction_with_live_data),
+            backgroundColor: ["#F0E442"]
+        }
+        ]
+    })
+
+    // Daily_Sales_Prediction_without_live_data
+
     return (
         <div className='bar-chart-container'>
+            <div className='b-chart'>
+                <InventoryBarChartItem chartData={userData2} barChartText={"Safety Stock and Reorder Quantity Predictions - With, Without Live Data"} />
+            </div>
             <div className='b-chart'>
                 <InventoryBarChartItem chartData={userData1} barChartText={"Monthly Sales and their predictions for - With, Without Live Data"} />
             </div>
             <div className='b-chart'>
-                <InventoryBarChartItem chartData={userData2} barChartText={"Safety Stock and Reorder Quantity Predictions - With, Without Live Data"} />
+                <InventoryBarChartItem chartData={userData3} barChartText={"Daily Sales and their predictions for - With, Without Live Data"} />
             </div>
+            
         </div>
     )
 }
