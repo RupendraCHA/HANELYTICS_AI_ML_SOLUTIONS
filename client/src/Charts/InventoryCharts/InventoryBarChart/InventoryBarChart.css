@@ -3,20 +3,17 @@
     margin: 0;
     box-sizing: border-box;
   }
-  .pie-chart-container {
-    /* margin: 20px; */
+  .bar-chart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: auto; */
-    background-color: #fff;
     border-radius: 12px;
-    /* padding: 12px; */
+    /* height: 70vh; */
   }
-  .p-chart{
+  .b-chart{
     border: 3px solid blue;
     padding: 10px;
     margin: 5px;
     border-radius: 12px;
-    background-color: #333232;
+    background-color: white;
   }

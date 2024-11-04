@@ -1,12 +1,12 @@
 
 import { useState } from 'react'
 import './InventoryPieChart.css'
-import PieChartItem from './../InventoryPieChartItem/InventoryPieChartItem.jsx'
+import InventoryPieChartItem from '../InventoryPieChartItem/InventoryPieChartItem.jsx'
 
  // Random colors
 
 // ["#756432", "#ffaa00", "#323f4b", "#00ff00", "#020230"]
-function InventoryPieChart({ chartText, pieChartData, data }) {
+function InventoryPieChart({ data }) {
 
     const slicedData = data.slice(1,11)
     let backgroundColors1 = []
@@ -53,10 +53,10 @@ function InventoryPieChart({ chartText, pieChartData, data }) {
         <div className='pie-chart-container'>
 
             <div className="p-chart">
-                <PieChartItem chartData={userData1} chartText={"Product Name and its Lead time in Days"} />
+                <InventoryPieChartItem chartData={userData1} chartText={"Product Name and its Lead time in Days"} />
             </div>
             <div class="p-chart">
-                <PieChartItem chartData={userData2} chartText={"Product Name and its Historical Monthly Sales"} />
+                <InventoryPieChartItem chartData={userData2} chartText={"Product Name and its Historical Monthly Sales"} />
             </div>
         </div>
     )

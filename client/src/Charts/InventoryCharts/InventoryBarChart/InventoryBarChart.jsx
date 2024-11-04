@@ -1,12 +1,12 @@
 
 import { useState } from 'react'
-import './BarChart.css'
-import BarChartItem from './../BarChartItem/BarChartItem.jsx'
-import { usersData } from "./Data.jsx"
+import './InventoryBarChart.css'
+import InventoryBarChartItem from './../InventoryBarChartItem/InventoryBarChartItem.jsx'
+// import { usersData } from "./Data.jsx"
 
 
 
-function BarChart({ barChartText, barChartData, labelsData }) {
+function InventoryBarChart({ barChartText, barChartData, labelsData }) {
 
     const [userData, setUserData] = useState({
         labels: barChartData.map((data) => data.productName),
@@ -22,17 +22,20 @@ function BarChart({ barChartText, barChartData, labelsData }) {
             label: labelsData[2],
             data: barChartData.map((data) => data.reorderPointQuantity),
             backgroundColor: ["green"]
-        }
+        },
         ]
     })
 
     return (
         <div className='bar-chart-container'>
-            <div style={{ width: 550 }}>
-                <BarChartItem chartData={userData} barChartText={barChartText} />
+            <div className='b-chart'>
+                <InventoryBarChartItem chartData={userData} barChartText={barChartText} />
             </div>
+            {/* <div className='b-chart'>
+                <InventoryBarChartItem chartData={userData} barChartText={barChartText} />
+            </div> */}
         </div>
     )
 }
 
-export default BarChart
+export default InventoryBarChart

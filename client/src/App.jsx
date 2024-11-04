@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './Navbar/Navbar.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NewChart from './NewChart/NewChart.jsx'
 // import Footer from "./Footer/Footer.jsx"
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/home' element={<Home />}></Route>
           {/* <Route exact path='/dataModels' element={<DataModels />}></Route> */}
           <Route exact path='/dataModeling' element={<DataModeling />}></Route>
+          <Route exact path='/newChart' element={<NewChart />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </>
