@@ -28,7 +28,7 @@ function InventoryPieChart({ data }) {
             backgroundColor: backgroundColors1,
             borderColor: backgroundColors1,
             borderWidth: 1,
-            hoverOffset: 30
+            hoverOffset: 30,
         }
         ]
     })

@@ -29,18 +29,20 @@ const InventoryBarChartItem = ({ chartData, barChartText }) => {
         scales: {
                     x: {
                     ticks: {
-                        color: 'black' // Change x-axis label color
+                        color: 'black',
+                        font: {size: 12, weight: 600} // Change x-axis label color
                     },
                     grid: {
-                        color: 'lightgreen' // Change x-axis grid line color
+                        color: 'yellow' // Change x-axis grid line color
                     }
                     },
                     y: {
                     ticks: {
-                        color: 'black' // Change y-axis label color
+                        color: 'black',
+                        font: {size: 12, weight: 600} // Change y-axis label color
                     },
                     grid: {
-                        color: 'lightgreen' // Change y-axis grid line color
+                        color: 'yellow' // Change y-axis grid line color
                     }
                     },
                 },
@@ -48,23 +50,23 @@ const InventoryBarChartItem = ({ chartData, barChartText }) => {
             legend: {
                 position: "bottom",
                 labels:{
-                    color: "white",
-                    font: {size: 12, weight: 500}
+                    color: "black",
+                    font: {size: 12, weight: 600}
                 }
             },
             title: {
                 display: true,
                 text: `${barChartText}`,
-                color: "white",
-                font: {size: 16}
+                color: "black",
+                font: {size: 16, weight: 700}
             }
         }
     }
 
     return (
         <div className="row">
-            <div className="col-12">
-                <Bar width={600} height={400} options={options} data={chartData}>
+            <div className="col-md-12">
+                <Bar width={1000} height={400} options={options} data={chartData}>
                     Bar Chart
                 </Bar>
             </div>

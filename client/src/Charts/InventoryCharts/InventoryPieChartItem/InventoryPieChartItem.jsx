@@ -17,15 +17,15 @@ const InventoryPieChartItem = ({ chartData, chartText }) => {
             legend: {
                 position: "bottom",
                 labels: {
-                    font:{size:12, weight:500, family:"Roboto"},
-                    color: "white",
+                    font:{size:12, weight:600, family:"Roboto"},
+                    color: "black",
                 }
             },
             title: {
                 position: "top",
                 display: true,
                 text: `${chartText}`,
-                color: "white",
+                color: "black",
                 font:{size:18, family:"Roboto", weight:700},
             }
         }

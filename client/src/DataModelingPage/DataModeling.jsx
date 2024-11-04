@@ -375,9 +375,6 @@ const DataModeling = () => {
                                         <div className='bar-chart'>
                                             <InventoryBarChart
                                                 data={data}
-                                                barChartText={"Predicted results for Sales, Safety Stock & Reorder Quantity"}
-                                                barChartData={inventoryBarData}
-                                                labelsData={["Predicted Sales", "Safety Stock", "Reorder Point Quantity"]}
                                             />
                                         </div>
                                     </div>}

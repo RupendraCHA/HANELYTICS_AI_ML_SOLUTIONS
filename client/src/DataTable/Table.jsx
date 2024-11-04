@@ -47,8 +47,8 @@ const Table = (props) => {
                                     <td>{eachRow.Monthly_Sales_Prediction_with_live_data}</td>
                                     <td>{eachRow.Daily_Sales_Prediction_without_live_data}</td>
                                     <td>{eachRow.Daily_Sales_Prediction_with_live_data}</td>
-                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_without_live_data}</td>
-                                    <td>{eachRow.fifteen_Days_Buffer_Stock_Estimates_with_live_data}</td>
+                                    <td>{eachRow.Safetry_Stock_Prediction_Without_Live_Data}</td>
+                                    <td>{eachRow.Safetry_Stock_Prediction_With_Live_Data}</td>
                                     <td>{eachRow.Reorder_Quantity_Prediction_without_live_data}</td>
                                     <td>{eachRow.Reorder_Quantity_Prediction_with_live_data}</td>
                                 </tr>
@@ -146,7 +146,7 @@ const Table = (props) => {
                                         <td>{eachRow.Medication_Name}</td>
                                         <td>{eachRow.Predicted_Sales}</td>
                                         <td>{eachRow.Historical_Sales}</td>
-                                        <td>{eachRow.Safety_Stock_For_15_Days}</td>
+                                        <td>{eachRow.Safety_Stock}</td>
                                         <td>{eachRow.Reorder_Point_Quantity}</td>
                                     </tr>
                                 )
