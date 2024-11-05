@@ -35,7 +35,7 @@ const EquipmentPieChartItem = ({ chartData, chartText }) => {
 
         <div className="row">
             <div className="col-12">
-                <Pie width={500} height={300} options={options} data={chartData}>
+                <Pie width={600} height={300} options={options} data={chartData}>
                     Pie Chart
                 </Pie>
             </div>

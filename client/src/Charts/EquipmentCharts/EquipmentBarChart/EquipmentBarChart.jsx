@@ -16,26 +16,21 @@ import EquipmentBarChartItem from './../EquipmentBarChartItem/EquipmentBarChartI
 function EquipmentBarChart({ data }) {
 
     const [userData1, setUserData1] = useState({
-        labels: data.slice(0,21).map((data) => data.Item_SKU),
+        labels: data.slice(0,21).map((data) => data.Equipment_Serial_Number),
         datasets: [{
-            label: "Revenue Prediction for 90 days",
-            data: data.slice(0,21).map((data) => data.Predicted_Revenue_for_Upcoming_90_Days),
-            backgroundColor: ["#009E73"],
+            label: "Historical Breakdown of Equipment Failure (in cycles)",
+            data: data.slice(0,21).map((data) => data.Historical_Breakdown_of_Equipment_Failure),
+            backgroundColor: ["#D55E00"],
+        },
+        {
+            label: "Predicted Equipment Breakdown of Failure (in cycles)",
+            data: data.slice(0,21).map((data) => data.Predicted_Equipment_Breakdown_of_Failure),
+            backgroundColor: ["#A285D1"],
         }
         
         ]
     })
 
-    const [userData2, setUserData2] = useState({
-        labels: data.slice(0,21).map((data) => data.Item_SKU),
-        datasets: [{
-            label: "Revenue Reporting Week",
-            data: data.slice(0,21).map((data) => data.Revenue_Reporting_Week),
-            backgroundColor: ["#F46A25"],
-        }
-        
-        ]
-    })
 
     // Daily_Sales_Prediction_without_live_data
 
@@ -43,9 +38,6 @@ function EquipmentBarChart({ data }) {
         <div className='bar-chart-container'>
             <div className='b-chart'>
                 <EquipmentBarChartItem chartData={userData1} barChartText={"Product ID and their Revenue Prediction amount"} />
-            </div>
-            <div className='b-chart'>
-                <EquipmentBarChartItem chartData={userData2} barChartText={"Product ID and its Revenue Reporting Week"} />
             </div>
         </div>
     )

@@ -28,6 +28,8 @@ import InventoryPieChart from '../Charts/InventoryCharts/InventoryPieChart/Inven
 import InventoryBarChart from '../Charts/InventoryCharts/InventoryBarChart/InventoryBarChart.jsx';
 import RevenuePieChart from '../Charts/RevenueCharts/RevenuePieChart/RevenuePieChart.jsx';
 import RevenueBarChart from '../Charts/RevenueCharts/RevenueBarChart/RevenueBarChart.jsx';
+import EquipmentPieChart from '../Charts/EquipmentCharts/EquipmentPieChart/EquipmentPieChart.jsx';
+import EquipmentBarChart from '../Charts/EquipmentCharts/EquipmentBarChart/EquipmentBarChart.jsx';
 
 
 const DataModeling = () => {
@@ -537,33 +539,6 @@ const DataModeling = () => {
                                     <button onClick={() => handleTabClick('tab2')} className='btn btn-success results'>View Model Insights</button>
                                 </div>
                             </>)}
-                            {/* {activeTab === 'tab2' && (
-                                <div id="tab2" className="content">
-                                    <div className='charts-container'>
-                                        <div className='pie-chart'>
-                                            <PieChart data={data} chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
-                                        </div>
-                                        <div className='bar-chart'>
-                                            <BarChart
-                                                data={data}
-                                                barChartText={"Equipment Failure representation in cycles"}
-                                                barChartData={equipmentBarData}
-                                                labelsData={["Quantity of Demand", "Historical Cycles", "Predicted Failure Cycles"]}
-                                            />
-                                        </div>
-                                    </div>
-                                    <h1 className='results-heading'>Results:</h1>
-                                    <div className='table-container'>
-                                        <Table data={data} inventoryData={inventoryData} revenueData={revenueData} equipmentData1={equipmentData1} clinicalData={clinicalData} />
-                                    </div>
-                                    <div className="button">
-                                        <button className='text-right btn btn-primary' onClick={handleResultsData}>
-                                            Back
-                                        </button>
-                                        <button onClick={() => handleTabClick('tab1')} className='btn btn-dark results'>Data Resources <span>(utilized)</span></button>
-                                    </div>
-                                </div>
-                            )} */}
                             {activeTab === 'tab2' && (
                                 <div id="tab2" className="content">
                                     <div className='charts-buttons'>
@@ -599,7 +574,7 @@ const DataModeling = () => {
                                     </div>
                                     {showPieChart && <div className='charts-container'>
                                         <div className='pie-chart'>
-                                        <PieChart data={data} chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
+                                        <EquipmentPieChart data={data} chartText={"Equipment Share of each Category"} pieChartData={equipmentPieData} />
                                         </div>
                                     </div>}
                                     <div className="button">
@@ -622,11 +597,8 @@ const DataModeling = () => {
                                     </div>
                                     {showPieChart && <div className='charts-container'>
                                         <div className='bar-chart'>
-                                        <BarChart
+                                        <EquipmentBarChart
                                                 data={data}
-                                                barChartText={"Equipment Failure representation in cycles"}
-                                                barChartData={equipmentBarData}
-                                                labelsData={["Quantity of Demand", "Historical Cycles", "Predicted Failure Cycles"]}
                                             />
                                         </div>
                                     </div>}

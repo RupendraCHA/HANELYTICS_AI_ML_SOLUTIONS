@@ -21,10 +21,10 @@ function EquipmentPieChart({ data }) {
 
     const [userData1, setUserData1] = useState({
         // 
-        labels: slicedData.map((data) => data.Item_SKU),
+        labels: slicedData.map((data) => data.Equipment_Serial_Number),
         datasets: [{
             // label: "Sales Data",
-            data: slicedData.map((data) => data.Predicted_Revenue_for_Upcoming_90_Days),
+            data: slicedData.map((data) => data.Historical_Breakdown_of_Equipment_Failure),
             backgroundColor: backgroundColors1,
             borderColor: backgroundColors1,
             borderWidth: 1,
@@ -35,10 +35,10 @@ function EquipmentPieChart({ data }) {
 
     const [userData2, setUserData2] = useState({
         // 
-        labels: slicedData.map((data) => data.Item_SKU),
+        labels: slicedData.map((data) => data.Equipment_Serial_Number),
         datasets: [{
             // label: "Sales Data",
-            data: slicedData.map((data) => data.Predicted_Revenue_for_Upcoming_90_Days),
+            data: slicedData.map((data) => data.Predicted_Equipment_Breakdown_of_Failure),
             backgroundColor: backgroundColors2,
             borderColor: backgroundColors2,
             borderWidth: 1,
@@ -53,11 +53,11 @@ function EquipmentPieChart({ data }) {
         <div className='pie-chart-container'>
             
             <div className="p-chart">
-                <RevenuePieChartItem chartData={userData1} chartText={"Product ID and Its Revenue Prediction"} />
+                <EquipmentPieChartItem chartData={userData1} chartText={"Equipment ID and Its Historical Breakdown of Equipment Failure in cycles"} />
             </div>
-            {/* <div className="p-chart">
-                <RevenuePieChartItem chartData={userData2} chartText={"Product Name and its Historical Monthly Sales"} />
-            </div> */}
+            <div className="p-chart">
+                <EquipmentPieChartItem chartData={userData2} chartText={"Equipment ID and Its Predicted Equipment Breakdown of Failure in cycles"} />
+            </div>
         </div>
     )
 }
