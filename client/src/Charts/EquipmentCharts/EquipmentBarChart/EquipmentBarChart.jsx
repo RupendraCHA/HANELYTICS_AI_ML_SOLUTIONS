@@ -27,7 +27,6 @@ function EquipmentBarChart({ data }) {
             data: data.slice(0,21).map((data) => data.Predicted_Equipment_Breakdown_of_Failure),
             backgroundColor: ["#A285D1"],
         }
-        
         ]
     })
 

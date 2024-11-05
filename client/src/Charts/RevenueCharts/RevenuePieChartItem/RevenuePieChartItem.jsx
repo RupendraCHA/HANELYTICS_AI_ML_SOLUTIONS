@@ -28,14 +28,15 @@ const RevenuePieChartItem = ({ chartData, chartText }) => {
                 color: "black",
                 font:{size:18, family:"Roboto", weight:700},
             }
-        }
+        },
+        cutout: "10%"
     }
 
     return (
 
         <div className="row">
             <div className="col-12">
-                <Pie width={500} height={300} options={options} data={chartData}>
+                <Pie width={600} height={300} options={options} data={chartData}>
                     Pie Chart
                 </Pie>
             </div>

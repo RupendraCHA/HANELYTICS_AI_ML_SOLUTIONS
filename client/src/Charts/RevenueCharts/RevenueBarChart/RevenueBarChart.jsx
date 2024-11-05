@@ -31,7 +31,7 @@ function RevenueBarChart({ data }) {
         datasets: [{
             label: "Revenue Reporting Week",
             data: data.slice(0,21).map((data) => data.Revenue_Reporting_Week),
-            backgroundColor: ["#F46A25"],
+            backgroundColor: ["#A285D1"],
         }
         
         ]
@@ -42,10 +42,10 @@ function RevenueBarChart({ data }) {
     return (
         <div className='bar-chart-container'>
             <div className='b-chart'>
-                <RevenueBarChartItem chartData={userData1} barChartText={"Product ID and their Revenue Prediction amount"} />
+                <RevenueBarChartItem chartData={userData2} barChartText={"Product ID and its Revenue Reporting Week"} />
             </div>
             <div className='b-chart'>
-                <RevenueBarChartItem chartData={userData2} barChartText={"Product ID and its Revenue Reporting Week"} />
+                <RevenueBarChartItem chartData={userData1} barChartText={"Product ID and their Revenue Prediction amount"} />
             </div>
         </div>
     )

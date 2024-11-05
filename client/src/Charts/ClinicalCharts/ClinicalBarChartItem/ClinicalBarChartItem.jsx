@@ -22,8 +22,8 @@ ChartJS.register(
     Legend
 )
 
-const RevenueBarChartItem = ({ chartData, barChartText }) => {
-
+const ClinicalBarChartItem = ({ chartData, barChartText }) => {
+    
     const options = {
         responsive: true,
         scales: {
@@ -66,7 +66,7 @@ const RevenueBarChartItem = ({ chartData, barChartText }) => {
     return (
         <div className="row">
             <div className="col-md-12">
-                <Bar width={800} height={400} options={options} data={chartData}>
+                <Bar width={1000} height={400} options={options} data={chartData}>
                     Bar Chart
                 </Bar>
             </div>
@@ -74,4 +74,4 @@ const RevenueBarChartItem = ({ chartData, barChartText }) => {
     )
 }
 
-export default RevenueBarChartItem
+export default ClinicalBarChartItem

@@ -287,9 +287,9 @@ ul {
     flex-direction: column;
   }
 }
-.charts-container::-webkit-scrollbar {
+/* .charts-container::-webkit-scrollbar {
   display: none;
-}
+} */
 .pie-chart {
   flex: 1.5;
   border: 2px solid #000;

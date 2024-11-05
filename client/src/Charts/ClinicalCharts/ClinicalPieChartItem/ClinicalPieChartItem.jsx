@@ -9,7 +9,7 @@ ChartJS.register(
     ArcElement
 )
 
-const EquipmentPieChartItem = ({ chartData, chartText }) => {
+const ClinicalPieChartItem = ({ chartData, chartText, cutout }) => {
 
     const options = {
         responsive: true,
@@ -29,7 +29,7 @@ const EquipmentPieChartItem = ({ chartData, chartText }) => {
                 font:{size:18, family:"Roboto", weight:700},
             }
         },
-        cutout: "10%"
+        cutout: cutout
     }
 
     return (
@@ -44,4 +44,4 @@ const EquipmentPieChartItem = ({ chartData, chartText }) => {
     )
 }
 
-export default EquipmentPieChartItem
+export default ClinicalPieChartItem

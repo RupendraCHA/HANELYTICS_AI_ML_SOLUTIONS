@@ -28,7 +28,8 @@ const InventoryPieChartItem = ({ chartData, chartText }) => {
                 color: "black",
                 font:{size:18, family:"Roboto", weight:700},
             }
-        }
+        },
+        cutout: "10%"
     }
 
     return (
