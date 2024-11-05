@@ -26,6 +26,9 @@ import { StoreContext } from '../context/StoreContext.jsx';
 import NewChart from '../NewChart/NewChart.jsx';
 import InventoryPieChart from '../Charts/InventoryCharts/InventoryPieChart/InventoryPieChart.jsx';
 import InventoryBarChart from '../Charts/InventoryCharts/InventoryBarChart/InventoryBarChart.jsx';
+import RevenuePieChart from '../Charts/RevenueCharts/RevenuePieChart/RevenuePieChart.jsx';
+import RevenueBarChart from '../Charts/RevenueCharts/RevenueBarChart/RevenueBarChart.jsx';
+
 
 const DataModeling = () => {
 
@@ -457,7 +460,8 @@ const DataModeling = () => {
                                     </div>
                                     {showPieChart && <div className='charts-container'>
                                         <div className='pie-chart'>
-                                        <PieChart data={data} chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} />
+                                        <RevenuePieChart data={data} />
+                                        {/* <PieChart data={data} chartText={"Revenue Share of each Category"} pieChartData={revenuePieData} /> */}
                                         </div>
                                     </div>}
                                     <div className="button">
@@ -480,12 +484,13 @@ const DataModeling = () => {
                                     </div>
                                     {showPieChart && <div className='charts-container'>
                                         <div className='bar-chart'>
-                                            <BarChart
+                                            {/* <BarChart
                                                 data={data}
                                                 barChartText={"Generation Of Revenue in Future"}
                                                 barChartData={revenueBarData}
                                                 labelsData={["Sales", "Inventory Levels", "Quantity for each Order"]}
-                                            />
+                                            /> */}
+                                            <RevenueBarChart data={data}/>
                                         </div>
                                     </div>}
                                     <div className="button">

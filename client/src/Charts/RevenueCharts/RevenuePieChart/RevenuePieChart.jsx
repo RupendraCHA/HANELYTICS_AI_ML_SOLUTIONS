@@ -1,14 +1,14 @@
 
 import { useState } from 'react'
-import './InventoryPieChart.css'
-import InventoryPieChartItem from '../InventoryPieChartItem/InventoryPieChartItem.jsx'
+import './RevenuePieChart.css'
+import RevenuePieChartItem from '../RevenuePieChartItem/RevenuePieChartItem.jsx'
 
  // Random colors
 
 // ["#756432", "#ffaa00", "#323f4b", "#00ff00", "#020230"]
-function InventoryPieChart({ data }) {
+function RevenuePieChart({ data }) {
 
-    const slicedData = data.slice(1,11)
+    const slicedData = data.slice(0,21)
     let backgroundColors1 = []
     let backgroundColors2 = []
     let borderColors = []
@@ -21,10 +21,10 @@ function InventoryPieChart({ data }) {
 
     const [userData1, setUserData1] = useState({
         // 
-        labels: slicedData.map((data) => data.Product_Name),
+        labels: slicedData.map((data) => data.Item_SKU),
         datasets: [{
             // label: "Sales Data",
-            data: slicedData.map((data) => data.Order_Fulfillment_Time_in_days),
+            data: slicedData.map((data) => data.Predicted_Revenue_for_Upcoming_90_Days),
             backgroundColor: backgroundColors1,
             borderColor: backgroundColors1,
             borderWidth: 1,
@@ -35,10 +35,10 @@ function InventoryPieChart({ data }) {
 
     const [userData2, setUserData2] = useState({
         // 
-        labels: slicedData.map((data) => data.Product_Name),
+        labels: slicedData.map((data) => data.Item_SKU),
         datasets: [{
             // label: "Sales Data",
-            data: slicedData.map((data) => data.Historical_Monthly_Sales),
+            data: slicedData.map((data) => data.Predicted_Revenue_for_Upcoming_90_Days),
             backgroundColor: backgroundColors2,
             borderColor: backgroundColors2,
             borderWidth: 1,
@@ -53,16 +53,16 @@ function InventoryPieChart({ data }) {
         <div className='pie-chart-container'>
             
             <div className="p-chart">
-                <InventoryPieChartItem chartData={userData1} chartText={"Product Name and its Lead time in Days"} />
+                <RevenuePieChartItem chartData={userData1} chartText={"Product ID and Its Revenue Prediction"} />
             </div>
-            <div className="p-chart">
-                <InventoryPieChartItem chartData={userData2} chartText={"Product Name and its Historical Monthly Sales"} />
-            </div>
+            {/* <div className="p-chart">
+                <RevenuePieChartItem chartData={userData2} chartText={"Product Name and its Historical Monthly Sales"} />
+            </div> */}
         </div>
     )
 }
 
-export default InventoryPieChart
+export default RevenuePieChart
 
 
 // {
