@@ -16,9 +16,8 @@ app.use(cors(
         credentials: true
     }
 ))
+
 app.use(cookieParser())
-
-
 
 
 const verifyUser = (req, res, next) => {
@@ -146,6 +145,38 @@ app.post("/login", (req, res) => {
         })
 })
 
+// app.post("/login", async (req, res) => {
+//     const {email, password} = req.body
+//     try {
+//         const user = await EmployeeModel.findOne({email})
+
+//         const isMatched = await bcrypt.compare(password, user.password)
+
+//         if (!isMatched) {
+//             // return res.json({success: false, message: "Password is Incorrect"})
+//             // res.json("User doesn't exist, Register and try Login again!")
+//             return res.json("Password is Incorrect.")
+
+//         }
+
+//         // Checking user registered or not
+//         if (!user) {
+//             // return res.json({success: false, message: "User doesn't exist"})
+//             return res.json("User doesn't exist, Register and try Login again!")
+
+//         } else {
+//             const token = jwt.sign({ email: user.email }, "jwt-secret-key", { expiresIn: "1d" })
+//             res.cookie("token", token)
+//             return res.json("Login Successful!")
+//         }
+
+//     }
+//     catch (error) {
+//         console.log(error)
+//         res.json({success: false, message: "Error"})
+//     }
+// })
+
 app.post('/register', (req, res) => {
 
     const { name, email, password } = req.body
@@ -157,6 +188,38 @@ app.post('/register', (req, res) => {
         }).catch(err => console.log(err.message))
 
 })
+
+// app.post("/register", async (req, res) => {
+//     const {name, email, password} = req.body
+
+//     try {
+//         const exists = await EmployeeModel.findOne({email})
+
+//         // Checking, is user already exists
+//         if (exists) {
+//             return res.json({success: false, message: "User already exists"})
+//         }
+//         //hashing the password
+//         const salt = await bcrypt.genSalt(10)
+//         const hashedPassword = await bcrypt.hash(password, salt)
+
+//         const newUser = new EmployeeModel({
+//             name: name,
+//             email: email,
+//             password: hashedPassword
+//         })
+
+//         const user = await newUser.save()
+//         // const token = createToken(user._id)
+//         res.json({success: true, token, name})
+
+//     }
+//     catch (error) {
+//         console.log(error.message)
+//         // res.json({success: false, message: "Error"})
+//     }
+// }
+// )
 
 app.get("/", (req, res) => {
     res.send("API is Working");
