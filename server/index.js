@@ -39,14 +39,14 @@ async function fetchData() {
 }
 
 app.get("/getInventoryData", async (req, res) => {
-    const uri = 'mongodb://localhost:27017';
+    const uri = 'mongodb+srv://rupendrachandaluri:R9912192624r@cluster0.iqrea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
     const client = new MongoClient(uri)
 
     try {
         await client.connect()
 
-        const database = client.db("database_of_inventory_details")
-        const collection = database.collection("predicted_data")
+        const database = client.db("Inventory_Predictions_Database")
+        const collection = database.collection("Predicted_Results")
 
         const allDocuments = await collection.find().toArray()
         return res.json(allDocuments)
@@ -58,14 +58,16 @@ app.get("/getInventoryData", async (req, res) => {
 })
 
 app.get("/getRevenueData", async (req, res) => {
-    const uri = 'mongodb://localhost:27017';
+    const uri = 'mongodb+srv://rupendrachandaluri:R9912192624r@cluster0.iqrea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
     const client = new MongoClient(uri)
 
     try {
         await client.connect()
 
-        const database = client.db("revenue_dataset")
-        const collection = database.collection("revenue_results")
+        const database = client.db("database_of_revenue_details")
+        const collection = database.collection("predicted_revenue_results")
+        // const database = client.db("revenue_dataset")
+        // const collection = database.collection("revenue_results")
 
         const allDocuments = await collection.find().toArray()
         return res.json(allDocuments)
@@ -77,7 +79,7 @@ app.get("/getRevenueData", async (req, res) => {
 })
 
 app.get("/getEquipmentData", async (req, res) => {
-    const uri = 'mongodb://localhost:27017';
+    const uri = 'mongodb+srv://rupendrachandaluri:R9912192624r@cluster0.iqrea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
     const client = new MongoClient(uri)
 
     try {
@@ -96,7 +98,7 @@ app.get("/getEquipmentData", async (req, res) => {
 })
 
 app.get("/getClinicalData", async (req, res) => {
-    const uri = 'mongodb://localhost:27017';
+    const uri = 'mongodb+srv://rupendrachandaluri:R9912192624r@cluster0.iqrea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
     const client = new MongoClient(uri)
 
     try {
@@ -229,7 +231,7 @@ const port = 3001;
 
 const connectToMongoDB = async () => {
 
-    await mongoose.connect("mongodb://127.0.0.1:27017/Visionsoft")
+    await mongoose.connect("mongodb+srv://rupendrachandaluri:R9912192624r@cluster0.iqrea.mongodb.net/Hanelytics_Database?retryWrites=true&w=majority&appName=Cluster0")
         .then(() => {
             console.log("Connected to MongoDB is Successful!")
         }).catch((err) => {
